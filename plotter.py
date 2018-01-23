@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 
 
 A = [2,1,3,1,5,3,1,4,1,5,1,4,1,2]
@@ -19,7 +19,7 @@ def print_sequence(s):
     for x in s:
         print(['a','b','c','d','e'][x], end='')
 
-s = make_sequence(3)
+s = make_sequence(2)
 print_sequence(s)
 
 import matplotlib.pyplot as plt
@@ -30,7 +30,7 @@ for x in s:
     for i in range(len(counters)):
         counters[i].append(counters[i][-1] + (x==i))
 """
-k = 128
+k = 10
 for x in s[:k//2]:
     counters[x][0] -= 1
 for x in s[k//2:k]:
