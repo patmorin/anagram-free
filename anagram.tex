@@ -65,50 +65,109 @@ urlcolor=linkblue}
 \section{Introduction}
 \pagenumbering{arabic}
 
-For a string $s$ over an alphabet $\Sigma$, $n_i(s)$ denotes the number
-of occurrences of $i\in\Sigma $ in $s$.  We say that a string $p=st$ with
-$|s|=|t|$ is \emph{balanced} if, for all $i\in\Sigma$, $n_i(s)\le 2n_i(t)$
-and $n_i(t)\le 2n_i(s)$.
+Let $s$ be a string over some alphabet $\Sigma$.  For each $i\in\Sigma$,
+$n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is
+the concatenation of two equal length strings $p$ and $q$, then we say
+that $s$ is \emph{$i$-balanced} if $n_i(q)/2\le n_i(p)\le 2n_i(q)$.
+If $s$ is $i$-balanced for each $i\in \Sigma$, then we say that $s$
+is \emph{balanced}.
+
+A binary string (over the alphabet $\Sigma=\{0,1\}$) is \emph{$r$-rich}
+if it does not contain $0^r$ as a substring and it is \emph{light}
+if it does not contain $11$ as a substring.
 
 
-
-
-\begin{lem}
-  Let $r$ and $h$ be natural numbers and let $n=2^h$. Then there
-  exists a probability distribution $\mathcal{D}$ over $\{0,\ldots,n\}^2$ such that, for any binary string $s$ of length $n$ not containing $11$ or $0^r$,
-  $\Pr_{(i,\ell)\sim\mathcal{D}}\{n_1(s_i\ldots,s_{i+\ell-1}) > 2n_1(s_{i+\ell},s_{i+2\ell-1} \} = o_h(1)$.
-\end{lem}
-
-\begin{lem}
-  For any integer $c$ there exists an integer $n$ such
-  that any string of length $n$ over an alphabet $\Sigma$ of size $c$
-  contains a $k$-balanced substring.
+\begin{lem}\lemlabel{binary}
+  Let $r$ and $h$ be natural numbers and let $s=s_0\ldots,s_{2^h-1}$ be any light $r$-rich
+  binary string of length $2^h$.  If we choose $i\in\{0,\ldots,h-1\}$ uniformly at random and choose $j\in\{0,\ldots,2^{i}-1\}$ uniformly at random, then
+  with probability $1-o_h(1)$, the substring $s_{j2^{h-i}}\ldots s_{(j+1)2^{h-i}-1}$ is 1-balanced.
 \end{lem}
 
 \begin{proof}
-  Call a string \emph{good} if it contains no $k$-balanced substring.
+  This is the tricky bit.
+\end{proof}
+
+\begin{lem}\lemlabel{balanced}
+  For any integer $c$ there exists an integer $n$ such that any string
+  of length $n$ over an alphabet $\Sigma$ of size $c$ contains a balanced
+  substring.
+\end{lem}
+
+\begin{proof}
+  Call a string \emph{good} if it contains no balanced substring.
   Suppose the lemma is not true so that there exists some minimum value
   $c$ for which there exist arbitrarily long good strings over an alphabet
   $\Sigma$ of size $c$.  
-
   Since $c$ is the minimum such value, this implies that there exists an
   integer $r$ such that every good string of length $r$ uses an alphabet
   of size at least $c$.  This implies that, in any good string over
   $\Sigma$, any substring of length $r$ contains at least one occurrence
   of each element of $\Sigma$.
 
-  For any $i\in\Sigma$ and any $j\in\{1,\ldots,n-2r+1\}$, let
-  $L_{i,j}=n_i(s_{j}\ldots s_{j+r-1})$ and let $R_{i,j}=n_i(s_{j+r}\ldots
-  s_{j+2r-1})$.  That is, $L_{i,j}$ and $R_{i,j}$ count occurrences of $i$
-  in the first and second half of the string $s_{j}\ldots s_{j+2r-1}$. In the remainder of this proof, all probability and expectations are taken with respect to a uniformly random choice of $i\in\{1,\ldots,n-2r+1\}$.
+  Let $s$ be a good string of length $2^h$ and, for each $i\in\Sigma$,
+  consider the binary string $s[i]$ derived from $s$ by replacing
+  each occurrence of $i$ with a 1 and every other symbol with a 0.
+  Observe that $s[i]$ is light since the appearance of the substring $11$
+  in $s[i]$ would imply that $s$ contains the balanced substring $ii$.
+  Observe also that $s[i]$ is $r$-rich since, from the discussion above,
+  every substring of $s$ of length $r$ contains at least one occurrence
+  of $i$.
 
-  First, we claim that
-  \begin{equation}
-    
-  \end{equation}
-
+  Now, choose $i\in\{0,\ldots,h-1\}$ uniformly at random and
+  choose $j\in\{0,\ldots,2^{i}-1\}$ uniformly at random and let
+  $t=s_{j2^{h-i}}\ldots s_{(j+1)2^{h-i}-1}$.  By \lemref{binary}, the
+  probability that $t[i]$ is not 1-balanced is $o_h(1)$, which implies
+  that the probability that $t$ is not $i$-balanced is $o_h(1)$.  Now,
+  by the union bound, the probability that $t$ is not balanced is is
+  at most $c\cdot o_h(1) < 1$ for sufficiently large $h$. We conclude
+  that any sufficiently long string $s\in \Sigma^*$ must contain a
+  balanced substring, contradicting that the assumption that there
+  exist arbitrarily long strings over an alphabet of size $c$ having no
+  balanced substrings.
 \end{proof}
 
+
+\begin{thm}
+  For every integer $\alpha$, there exists a graph of pathwidth 3 whose
+  non-repetitive chromatic number is greater than $\alpha$.
+\end{thm}
+
+\begin{proof}
+Let $G$ be the graph with vertex set
+$V(G)=\{v_0,\ldots,v_{n-1},w_0,\ldots,w_{n-1}\}$ and with edge set
+\[
+  E(G) = \{v_iw_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{v_iw_{i+1},v_{i+1}w_i\} \enspace .
+\]
+We call the pairs $v_i$ and $w_i$ \emph{twins}.
+The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
+
+Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
+using $\alpha$ colours. From this we derive a string $s=s_0\ldots,s_{n-1}$
+where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.  Observe that $s$ is
+a string over an alphabet $\Sigma$ of size $c=\binom{\alpha}{2}$.
+By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
+is sufficiently large.  Since $t$
+is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
+ graph $B$ whose edges join
+elements of the first half of $t$ to equal elements in the second half
+and having the following properties: $B$ has minimum degree 1, maximum
+degree 2 and contains no path of length greater than 2.  Thus, the
+connected components of $B$ are paths of length 1 and paths of length 2.
+
+We will use $B$ to construct a path $P$ in $G$ whose colouring is an
+anagram.  For each length-1 component $s_is_j$ of $B$, the path $P$
+will include $v_i$, $w_i$, $v_j$ and $w_j$.  For each length-2 path
+$s_is_js_k$ the path $P$ include $v_i$, $v_j$, $w_j$, and the unique
+vertex $u\in\{v_k,w_k\}$ such that $\varphi(u)\neq \varphi(v_i)$.
+The ordering of vertices along the path $P$ is by increasing order
+of index, with ties (among $v_i$ and $w_i$) broken arbitrarily.
+The fact that $B$ has minimum degree 1 ensures that $P=x_1,\ldots,x_m$
+is indeed a path in $G$.  The choice of vertices in $P$ ensures that
+$\varphi(x_1),\ldots,\varphi(x_m)$ is an anagram since length-1 components
+of $B$ create twins in the first half that cancel twins in the second
+half and length-2 components create twins in one half that cancel two
+vertices in the other half.
+\end{proof}
 
 \end{document}
 
