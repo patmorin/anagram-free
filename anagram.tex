@@ -1,0 +1,115 @@
+\documentclass{patmorin}
+\listfiles
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsthm,amsmath,graphicx}
+\usepackage{pat}
+\usepackage[letterpaper]{hyperref}
+\usepackage[table,dvipsnames]{xcolor}
+\definecolor{linkblue}{named}{Blue}
+\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
+citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
+urlcolor=linkblue} 
+\setlength{\parskip}{1ex}
+\usepackage{wasysym}
+
+\title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth Bounded}}
+
+\author{Pat Morin and Friends}%
+
+%\usepackage[mathlines]{lineno}
+%\linenumbers
+%\setlength{\linenumbersep}{2.5cm}
+%\rightlinenumbers
+%\linenumbers
+%\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+%  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+%  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+%  \renewenvironment{#1}%
+%     {\linenomath\csname old#1\endcsname}%
+%     {\csname oldend#1\endcsname\endlinenomath}}% 
+%\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+%  \patchAmsMathEnvironmentForLineno{#1}%
+%  \patchAmsMathEnvironmentForLineno{#1*}}%
+%\AtBeginDocument{%
+%\patchBothAmsMathEnvironmentsForLineno{equation}%
+%\patchBothAmsMathEnvironmentsForLineno{align}%
+%\patchBothAmsMathEnvironmentsForLineno{flalign}%
+%\patchBothAmsMathEnvironmentsForLineno{alignat}%
+%\patchBothAmsMathEnvironmentsForLineno{gather}%
+%\patchBothAmsMathEnvironmentsForLineno{multline}%
+%}
+
+
+\newcommand{\question}[1]{\textbf{\color{red}Question:}~#1}
+
+\DeclareMathOperator{\ob}{obs}
+\DeclareMathOperator{\planeobs}{plane-obs}
+
+\newcommand{\eps}{\epsilon}
+
+%\pagenumbering{roman}
+\begin{document}
+%\begin{titlepage}
+\maketitle
+%
+\begin{abstract}
+\end{abstract}
+%\end{titlepage}
+%
+%\tableofcontents
+%
+%\newpage
+
+
+\section{Introduction}
+\pagenumbering{arabic}
+
+For a string $s$ over an alphabet $\Sigma$, $n_i(s)$ denotes the number
+of occurrences of $i\in\Sigma $ in $s$.  We say that a string $p=st$ with
+$|s|=|t|$ is \emph{balanced} if, for all $i\in\Sigma$, $n_i(s)\le 2n_i(t)$
+and $n_i(t)\le 2n_i(s)$.
+
+
+
+
+\begin{lem}
+  Let $r$ and $h$ be natural numbers and let $n=2^h$. Then there
+  exists a probability distribution $\mathcal{D}$ over $\{0,\ldots,n\}^2$ such that, for any binary string $s$ of length $n$ not containing $11$ or $0^r$,
+  $\Pr_{(i,\ell)\sim\mathcal{D}}\{n_1(s_i\ldots,s_{i+\ell-1}) > 2n_1(s_{i+\ell},s_{i+2\ell-1} \} = o_h(1)$.
+\end{lem}
+
+\begin{lem}
+  For any integer $c$ there exists an integer $n$ such
+  that any string of length $n$ over an alphabet $\Sigma$ of size $c$
+  contains a $k$-balanced substring.
+\end{lem}
+
+\begin{proof}
+  Call a string \emph{good} if it contains no $k$-balanced substring.
+  Suppose the lemma is not true so that there exists some minimum value
+  $c$ for which there exist arbitrarily long good strings over an alphabet
+  $\Sigma$ of size $c$.  
+
+  Since $c$ is the minimum such value, this implies that there exists an
+  integer $r$ such that every good string of length $r$ uses an alphabet
+  of size at least $c$.  This implies that, in any good string over
+  $\Sigma$, any substring of length $r$ contains at least one occurrence
+  of each element of $\Sigma$.
+
+  For any $i\in\Sigma$ and any $j\in\{1,\ldots,n-2r+1\}$, let
+  $L_{i,j}=n_i(s_{j}\ldots s_{j+r-1})$ and let $R_{i,j}=n_i(s_{j+r}\ldots
+  s_{j+2r-1})$.  That is, $L_{i,j}$ and $R_{i,j}$ count occurrences of $i$
+  in the first and second half of the string $s_{j}\ldots s_{j+2r-1}$. In the remainder of this proof, all probability and expectations are taken with respect to a uniformly random choice of $i\in\{1,\ldots,n-2r+1\}$.
+
+  First, we claim that
+  \begin{equation}
+    
+  \end{equation}
+
+\end{proof}
+
+
+\end{document}
+
+
