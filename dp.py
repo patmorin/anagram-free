@@ -55,7 +55,7 @@ def optimal(h, r):
                         this = t[h-1,w0,a,x] + t[h-1,w1,r-x,b] + bonus
                         if this > best:
                             best = this
-                            s[h,w,a,b] = (w0, w1, x)
+                            s[h,w,a,b] = w0, w1, x
                 if this > best:
                     best = this
                     s[h,w,a,b] = (w0, w1, x)
@@ -69,21 +69,23 @@ def optimal(h, r):
     """
     q = [t[h,w,r,r] for w in range(2**h)]
     wmax = imax(q)
-    string = make_string(s, h, wmax, r, r)
+    string = make_string(s, h, wmax, r, r, r)
     print("{} (w={} v={})".format(string, wmax, t[h,wmax,r,r]))
     return q[wmax]
 
-def make_string(s, h, w, a, b):
+def make_string(s, h, w, r, a, b):
     if h == 0:
         return str(w)
     if w == 0:
         return "0" * 2**h
-    w0, w1, x = s[h,w,a,r]
-    return make_string(s, h-1, w0, a, x) \
-           + make_string(s, h-1, w1, r-x, b)
-
+    if (h,w,a,b) in s:
+        w0, w1, x = s[h,w,a,b]
+        return make_string(s, h-1, w0, r, a, x) \
+               + make_string(s, h-1, w1, r, r-x, b)
+    return "?" * 2**h
 
 if __name__ == "__main__":
+    """
     try:
         h = int(sys.argv[1])
         r = int(sys.argv[2])
@@ -92,5 +94,6 @@ if __name__ == "__main__":
         sys.exit(-1)
     val = optimal(h, r)
     print(h, r, val, val/(h*2**h))
-    # for h in range(2, 20):
-    #    print(h, optimal(h, 2)/(h*2**h))
+    """
+    for h in range(2, 20):
+       print(h, optimal(h, 5)/(h*2**(h+1)))
