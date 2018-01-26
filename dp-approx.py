@@ -2,6 +2,8 @@
 
 from collections import defaultdict
 from itertools import product
+from math import log
+import bisect
 import sys
 
 
@@ -28,6 +30,10 @@ def optimal(h, r):
     t = defaultdict(lambda: -inf)
     s = defaultdict(lambda: (-1,-1))    # used to reconstruct optimal string
 
+    base = 1.05
+    apxvals = [0]+[int(base**i) for i in range(int(log(2**h, base)))]
+    apxvals = sorted(set(apxvals))
+
     # Fill the bottom row (h = 0)
     for a, b in product(range(r+1), range(r+1)):
         t[0,1,a,b] = 0
@@ -36,10 +42,12 @@ def optimal(h, r):
 
     for h in range(1,h0+1):
         # print_t(t, [h-1], [0], [0,1,2], [0,1,2])
-        for w, a, b in product(range(2**h + 1), range(r+1), range(r+1)):
+        for w, a, b in product(apxvals, range(r+1), range(r+1)):
             best = -inf
-            for w0 in range(w+1):
+            for w0 in [x for x in apxvals if x <= w+1]:
                 w1 = w - w0
+                i = bisect.bisect_left(apxvals, w1)
+                w1 = apxvals[i]
                 bonus = [0,2**h][w0 > 2*w1 or w1 > 2*w0]
                 if w0 == 0 and w1 == 0:
                     x = 2**(h-1)
@@ -61,7 +69,7 @@ def optimal(h, r):
                     s[h,w,a,b] = (w0, w1, x)
             t[h,w,a,b] = best
 
-    q = [t[h,w,r,r] for w in range(2**h)]
+    q = [t[h,w,r,r] for w in apxvals]
     wmax = imax(q)
     #string = make_string(s, h, wmax, r, r, r)
     #print("{} (w={} v={})".format(string, wmax, t[h,wmax,r,r]))
@@ -84,7 +92,7 @@ if __name__ == "__main__":
     except:
         sys.stderr.write("Usage: {} <r>\n".format(sys.argv[0]))
         sys.exit(-1)
-    for h in range(1, 20):
+    for h in range(1, 100):
         opt = optimal(h, r)
         print(h, opt/(h*2**(h+1)))
         sys.stdout.flush()
