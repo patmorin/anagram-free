@@ -92,7 +92,7 @@ if __name__ == "__main__":
     except:
         sys.stderr.write("Usage: {} <r>\n".format(sys.argv[0]))
         sys.exit(-1)
-    for h in range(1, 100):
+    for h in range(1, 1000):
         opt = optimal(h, r)
         print(h, opt/(h*2**(h+1)))
         sys.stdout.flush()

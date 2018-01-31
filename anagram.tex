@@ -66,26 +66,11 @@ urlcolor=linkblue}
 \pagenumbering{arabic}
 
 Let $s$ be a string over some alphabet $\Sigma$.  For each $i\in\Sigma$,
-$n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is
-the concatenation of two equal length strings $p$ and $q$, then we say
-that $s$ is \emph{$i$-balanced} if $n_i(q)/2\le n_i(p)\le 2n_i(q)$.
-If $s$ is $i$-balanced for each $i\in \Sigma$, then we say that $s$
-is \emph{balanced}.
-
-A binary string (over the alphabet $\Sigma=\{0,1\}$) is \emph{$r$-rich}
-if it does not contain $0^r$ as a substring and it is \emph{light}
-if it does not contain $11$ as a substring.
-
-
-\begin{lem}\lemlabel{binary}
-  Let $r$ and $h$ be natural numbers and let $s=s_0\ldots,s_{2^h-1}$ be any light $r$-rich
-  binary string of length $2^h$.  If we choose $i\in\{0,\ldots,h-1\}$ uniformly at random and choose $j\in\{0,\ldots,2^{i}-1\}$ uniformly at random, then
-  with probability $1-o_h(1)$, the substring $s_{j2^{h-i}}\ldots s_{(j+1)2^{h-i}-1}$ is 1-balanced.
-\end{lem}
-
-\begin{proof}
-  This is the tricky bit.
-\end{proof}
+$n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is the
+concatenation of two equal length strings $p$ and $q$, then we say that
+$s$ is \emph{$i$-balanced} if $n_i(q)/2\le n_i(p)\le 2n_i(q)$ otherwise
+$s$ is $i$-unbalanced.  If $s$ is $i$-balanced for each $i\in \Sigma$,
+then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
 
 \begin{lem}\lemlabel{balanced}
   For any integer $c$ there exists an integer $n$ such that any string
@@ -94,42 +79,103 @@ if it does not contain $11$ as a substring.
 \end{lem}
 
 \begin{proof}
-  Call a string \emph{good} if it contains no balanced substring.
+  Call a string a \emph{$c$-string} if it is over an alphabet of size $c$
+  and call a string \emph{good} if it contains no balanced substring.  Let
+  $h_c$ denote the minimum integer for which there is no good $c$-string
+  length $2^{h_c}$.  Thus, our goal is to show that $h_c<\infty$.
+
   Suppose the lemma is not true so that there exists some minimum value
-  $c$ for which there exist arbitrarily long good strings over an alphabet
-  $\Sigma$ of size $c$.  
-  Since $c$ is the minimum such value, this implies that there exists an
-  integer $r$ such that every good string of length $r$ uses an alphabet
-  of size at least $c$.  This implies that, in any good string over
-  $\Sigma$, any substring of length $r$ contains at least one occurrence
-  of each element of $\Sigma$.
+  $c$ for which $h_c$ is infinite.  Choosing the minimum such value of 
+  $c$ ensures that $h_{c-1}$ is finite and that any good (sub)string of
+  length at least $r:=2^{h_{c-1}}$ uses an alphabet of size at least $c$.
 
-  Let $s$ be a good string of length $2^h$ and, for each $i\in\Sigma$,
-  consider the binary string $s[i]$ derived from $s$ by replacing
-  each occurrence of $i$ with a 1 and every other symbol with a 0.
-  Observe that $s[i]$ is light since the appearance of the substring $11$
-  in $s[i]$ would imply that $s$ contains the balanced substring $ii$.
-  Observe also that $s[i]$ is $r$-rich since, from the discussion above,
-  every substring of $s$ of length $r$ contains at least one occurrence
-  of $i$.
+  Let $s$ be a good $c$-string of length $r2^{h}$, for some value $h$
+  to specified shortly.  Assume that $s$ is a string over the alphabet
+  $\Sigma=\{1,\ldots,c\}$. Consider the complete binary tree $T$ of
+  height $h$ whose leaves, in order, are the length-1 substrings of
+  $s$ and for which each internal node is the substring obtained by
+  concatenating the node's left and right child.
 
-  Now, choose $i\in\{0,\ldots,h-1\}$ uniformly at random and
-  choose $j\in\{0,\ldots,2^{i}-1\}$ uniformly at random and let
-  $t=s_{j2^{h-i}}\ldots s_{(j+1)2^{h-i}-1}$.  By \lemref{binary}, the
-  probability that $t[i]$ is not 1-balanced is $o_h(1)$, which implies
-  that the probability that $t$ is not $i$-balanced is $o_h(1)$.  Now,
-  by the union bound, the probability that $t$ is not balanced is is
-  at most $c\cdot o_h(1) < 1$ for sufficiently large $h$. We conclude
-  that any sufficiently long string $s\in \Sigma^*$ must contain a
-  balanced substring, contradicting that the assumption that there
-  exist arbitrarily long strings over an alphabet of size $c$ having no
-  balanced substrings.
+  For each node $v$ of $T$, let $h(v)$ denote the height of $v$'s subtree
+  and $s(v)=2^{h(v)}$ denote the length of the string $v$. For each
+  $i\in\Sigma$, let $w_i(v):=n_i(v)/s(v)$.  Note that $0\le w_i(v)\le
+  1/2$ and that $\sum_{i\in\Sigma} w_i(v)=1$.  Furthermore, if $v$
+  has two children $x$ and $y$, then $w_i(v) = (w_i(x)+w_i(y))/2$.
+  The assumption that $s$ has no balanced substring implies $v$ is
+  $i$-unbalanced, for some $i\in\Sigma$.  Assign each internal node
+  $v$ of $T$ the \emph{label} $\ell(v):=\min\{i\in\Sigma: \mbox{$v$
+  is $i$-unbalanced}\}$.
+
+  For $i\in\Sigma$, let $S_i=\{v\in V(T): \ell(v)=i\}$ and observe that 
+  \[
+      \sum_{i\in\Sigma} \sum_{v\in S_i} s(v) = (h+\log_2 r)r2^{h}
+  \]
+  and therefore, there exists some $i^*\in\Sigma$ such that
+  $s(S_i)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$. From
+  this point on we use the shorhands (for any $R\subseteq V(T)$, 
+  $s(R):=\sum_{v\in R}s(v)$ and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
+
+  Summarizing, we have a complete binary tree $T$ of height $h+\log_2 r$ and
+  a subset $X\subseteq V(T)$ with the following properties: 
+  \begin{enumerate}
+    \item For each $v\in V(T)$, $w(v) \le 1/2$.
+    \item For each $v\in V(T)$ with $s(v) \ge r$, $w(v)\ge 1/r$.
+    \item For each internal node $v\in V(T)$ with children $x$ and $y$,
+       $w(v) = (w(x)+w(y))/2$
+    \item $w(X) \ge (h+\log_2 r)r2^{h}/c$.
+     \item For each internal node $v\in V(T)\cap X$ with children $x$ and $y$,
+       $w(x) > 2w(y)$.
+  \end{enumerate}
+  Now, for each $i\in\{1,\ldots,h\}$, let $X_i\subset X$ denote the
+  set of nodes $v\in X$ for which the path from the root of $T$ to $v$
+  contains exactly $i$ nodes in $X$ (including $v$).  Observe that $s(X_1)
+  \ge s(X_2) \ge \cdots\ge s(X_h)$.
+
+  We will show that, there exists a constant $t>1$ such that, 
+  for each $i\in\{1,\ldots,h-t\}$,  $s(X_i+t) < (1/2)s(X_i)$.  In this way, 
+  \begin{align*}
+     (h+\log_2 r)r2^{h}/c 
+        \le s(X) & = \sum_{i=1}^{\infty} s(X_i) \\
+           &\le \sum_{i=1}^{\infty} s(X_{\floor{i/t}+1}) \\
+           &\le t\sum_{i=0}^{\infty} s(X_{it+1}) \\
+           &\le t\sum_{i=0}^{\infty} (1/2)^ii s(X_1) \\
+           &\le t\sum_{i=0}^{\infty} (1/2)^i r2^{h} \\
+           & = 2tr2^{h} 
+  \end{align*}
+  which is a contradiction if 
+  \[    h+\log_2 r/c \ge 2t \enspace . \]
+
+  For each node $v\in X$, let $R(v)$ denote the unique child of $v$
+  such that $w(R(v)) < 2w(v)/3$ (the existence of $R(v)$ follows
+  from Properties~3 and 5, above).  Consider some non-empty subset
+  $A_0\subseteq X_i$, let $R(A_0)=\{R(x):x\in A_0\}$.  Observe that
+  $s(R(A_0)) = s(A_0)/2$ and that $w(R(A_0)) < 2w(A_0)/3$.  Now, let $A_1$
+  be the subset of $X_{i+1}$ that are descendants of nodes in $R(A_0)$.
+  More generally, we define $A_j$ as the subset of nodes in $X_{i+j}$
+  that have ancestors in $R(A_{j-1})$.  The key observation is that
+  \begin{equation}
+      w(A_j) \le (2/3)w(A_{j-1})\frac{s(A_{j-1})}{s(A_j)} \enspace .
+        \eqlabel{string}
+  \end{equation}
+  Beginning at $A_0$ and repeatedly applying \eqref{string}, we obtain:
+  \[
+      w(A_t) \le (2/3)^t w(A_0)\frac{s(A_0)}{s(A_t)} \enspace .
+  \]
+  On the other hand, $w(A_t)\ge 1/r$, so  
+  \[ 
+      1/r \le (2/3)^t w(A_0)\frac{s(A_0)}{s(A_t)} \enspace .
+  \]
+  and rearranging terms yields
+  \[
+     s(A_t) \le (2/3)^t r w(A_0)s(A_0) \le (2/3)^t r s(A_0) \le (1/2)s(A_0)
+  \]
+  for $t = \lceil\log_{3/2}(2r)\rceil$.
 \end{proof}
 
 
 \begin{thm}
   For every integer $\alpha$, there exists a graph of pathwidth 3 whose
-  non-repetitive chromatic number is greater than $\alpha$.
+  anagram-free chromatic number is greater than $\alpha$.
 \end{thm}
 
 \begin{proof}
