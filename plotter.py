@@ -17,7 +17,7 @@ def make_sequence(k):
 
 def print_sequence(s):
     for x in s:
-        print(['a','b','c','d','e'][x], end='')
+        print(" ".join([str(x+6) for x in s]))
 
 s = make_sequence(2)
 print_sequence(s)

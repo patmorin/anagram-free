@@ -161,11 +161,11 @@ we show how it is used to prove \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
 Let $G$ be the graph with vertex set
-$V(G)=\{v_0,\ldots,v_{n-1},w_0,\ldots,w_{n-1}\}$ and with edge set
+$V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
 \[
-  E(G) = \{v_iw_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{v_iw_{i+1},v_{i+1}w_i\} \enspace .
+  E(G) = \{x_iy_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{x_iy_{i+1},x_{i+1}y_i\} \enspace .
 \]
-We call the pairs $v_i$ and $w_i$ \emph{twins}.
+We call the pairs $x_i$ and $y_i$ \emph{twins}.
 The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
 
 Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
