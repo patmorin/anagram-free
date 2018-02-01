@@ -54,6 +54,11 @@ urlcolor=linkblue}
 \maketitle
 %
 \begin{abstract}
+  The anagram-free chromatic number is a new graph parameter introduced
+  independently Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:XXX}
+  and Wilson and Wood \cite{wilson.wood:XXX}.  In this note, we show
+  that there are graph of pathwidth 3 with arbitrarily large anagram-free
+  chromatic number.
 \end{abstract}
 %\end{titlepage}
 %
@@ -64,6 +69,33 @@ urlcolor=linkblue}
 
 \section{Introduction}
 \pagenumbering{arabic}
+
+A string $s=pq$ if an \emph{anagram} if $p$ is a permutation of $q$.
+For a graph $G$, a $c$-colouring $\phi:V(G)\to\{1,\ldots,c\}$ is
+\emph{anagram-free} if, for every path $v_1,v_2,\ldots,v_{2_k}$ in
+$G$, the string $\phi(v_1),\ldots,\phi(v_{2k}$ is not an anagram.  The
+\emph{anagram-free chromatic number} of $G$, denoted $\pi_\alpha(G)$, is
+the smallest value of $c$ for which $G$ has an anagram-free $c$-colouring.
+
+Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:XXX} and Wilson
+and Wood \cite{wilson.wood:XXX} have shown that there are trees, and
+even binary trees with arbitrarily large anagram-free chromatic number.
+On the positive side, $n$-vertex graphs of treewidth $k$ have anagram-free
+chromatic number $O(k\log n)$.  Wilson and Wood showed that every tree
+of pathwidth $k$ has anagram-free chromatic number at most $4(k+1)$.
+This raises the question of whether this result can be strengthened:
+Is there some function $f(k)$ such that every graph of pathwidth $k$
+has anagram-free chromatic number at most $f(k)$.  The main purpose of
+this note is to show that the answer to this question is negative:
+
+\begin{thm}\thmlabel{main}
+  For every integer $\alpha$, there exists a graph of pathwidth 3 whose
+  anagram-free chromatic number is greater than $\alpha$.
+\end{thm}
+
+
+
+\section{The Proof}
 
 Let $s$ be a string over some alphabet $\Sigma$.  For each $i\in\Sigma$,
 $n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is the
@@ -82,7 +114,7 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
   Call a string a \emph{$c$-string} if it is over an alphabet of size $c$
   and call a string \emph{good} if it contains no balanced substring.  Let
   $h_c$ denote the minimum integer for which there is no good $c$-string
-  length $2^{h_c}$.  Thus, our goal is to show that $h_c<\infty$.
+  of length $2^{h_c}$.  Thus, our goal is to show that $h_c<\infty$.
 
   Suppose the lemma is not true so that there exists some minimum value
   $c$ for which $h_c$ is infinite.  Choosing the minimum such value of 
@@ -112,7 +144,7 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
   \]
   and therefore, there exists some $i^*\in\Sigma$ such that
   $s(S_i)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$. From
-  this point on we use the shorhands (for any $R\subseteq V(T)$, 
+  this point on we use the shorthands (for any $R\subseteq V(T)$) 
   $s(R):=\sum_{v\in R}s(v)$ and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
 
   Summarizing, we have a complete binary tree $T$ of height $h+\log_2 r$ and
@@ -121,64 +153,82 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
     \item For each $v\in V(T)$, $w(v) \le 1/2$.
     \item For each $v\in V(T)$ with $s(v) \ge r$, $w(v)\ge 1/r$.
     \item For each internal node $v\in V(T)$ with children $x$ and $y$,
-       $w(v) = (w(x)+w(y))/2$
+       $w(v) = (w(x)+w(y))/2$.
     \item $w(X) \ge (h+\log_2 r)r2^{h}/c$.
      \item For each internal node $v\in V(T)\cap X$ with children $x$ and $y$,
        $w(x) > 2w(y)$.
   \end{enumerate}
   Now, for each $i\in\{1,\ldots,h\}$, let $X_i\subset X$ denote the
   set of nodes $v\in X$ for which the path from the root of $T$ to $v$
-  contains exactly $i$ nodes in $X$ (including $v$).  Observe that $s(X_1)
-  \ge s(X_2) \ge \cdots\ge s(X_h)$.
+  contains exactly $i$ nodes in $X$ (including $v$).  Observe that 
+  \[  r2^h \ge s(X_1) \ge s(X_2) \ge \cdots\ge s(X_{h+\log_2 r}) \enspace . \]
 
-  We will show that, there exists a constant $t>1$ such that, 
-  for each $i\in\{1,\ldots,h-t\}$,  $s(X_i+t) < (1/2)s(X_i)$.  In this way, 
+  We will show that, there exists a constant $t$ such that, 
+  for each $i\in\{1,\ldots,h-t\}$,  
+  \begin{equation}
+     s(X_{i+t}) \le (1-(1/2)^{t+1}) s(X_i) \enspace . \eqlabel{t}
+  \end{equation}
+  In this way, 
   \begin{align*}
      (h+\log_2 r)r2^{h}/c 
-        \le s(X) & = \sum_{i=1}^{\infty} s(X_i) \\
-           &\le \sum_{i=1}^{\infty} s(X_{\floor{i/t}+1}) \\
-           &\le t\sum_{i=0}^{\infty} s(X_{it+1}) \\
-           &\le t\sum_{i=0}^{\infty} (1/2)^ii s(X_1) \\
-           &\le t\sum_{i=0}^{\infty} (1/2)^i r2^{h} \\
-           & = 2tr2^{h} 
+        \le s(X) & = \sum_{i=1}^{h+\log_2 r} s(X_i) \\
+           &\le (\log_2 r)r2^{h}+\sum_{i=1}^{h} s(X_i) \\
+           &\le (\log_2 r)r2^{h}+\sum_{i=1}^{h} s(X_{\floor{i/t}+1}) \\
+           &\le (\log_2 r)r2^{h}+t\sum_{i=0}^{\floor{h/t}} s(X_{it+1}) \\
+           &\le (\log_2 r)r2^{h}+t\sum_{i=0}^{\infty} (1-(1/2)^{t+1})^i s(X_1) \\
+           &\le (\log_2 r)r2^{h}+tr2^{h}\sum_{i=0}^{\infty} (1-(1/2)^{t+1})^i  \\
+           & = (\log_2 r+t2^{t+1})r2^{h} 
   \end{align*}
-  which is a contradiction if 
-  \[    h+\log_2 r/c \ge 2t \enspace . \]
+  which is a contradiction for sufficiently large $h$; in particular, for 
+  \[    
+        h \ge (c-1)\log_2 r+ ct2^{t+1} \enspace . 
+  \]
 
-  For each node $v\in X$, let $R(v)$ denote the unique child of $v$
-  such that $w(R(v)) < 2w(v)/3$ (the existence of $R(v)$ follows
-  from Properties~3 and 5, above).  Consider some non-empty subset
-  $A_0\subseteq X_i$, let $R(A_0)=\{R(x):x\in A_0\}$.  Observe that
-  $s(R(A_0)) = s(A_0)/2$ and that $w(R(A_0)) < 2w(A_0)/3$.  Now, let $A_1$
-  be the subset of $X_{i+1}$ that are descendants of nodes in $R(A_0)$.
-  More generally, we define $A_j$ as the subset of nodes in $X_{i+j}$
-  that have ancestors in $R(A_{j-1})$.  The key observation is that
+  It remains to establish \eqref{t}, which we do now.  For each node
+  $v\in X$, let $R(v)$ denote the unique child of $v$ such that $w(R(v))
+  < 2w(v)/3$ (the existence of $R(v)$ follows from Properties~3 and
+  5, above).  For a subset $A\subset X$, let $R(A)=\{R(x):x\in A\}$.
+  Define $A_0\subseteq X_i$ and, for each $j\ge 1$, define $A_j$
+  to be the subset of $X_{i+j}$ that are descendants of some node in
+  $R(A_{i-1})$.  Observe that $s(A_i) \le s(R(A_{i-1})) = s(A_{i-1})/2$,
+  so 
+   \begin{align*}
+      s(X_{i+t}) 
+         &\le (1/2)s(A_0) + (1/2)s(A_1) + \cdots + (1/2)s(A_{t-1}) + s(A_t) \\
+         &\le (1/2)s(A_0) + (1/4)s(A_0) + \cdots + (1/2)^t s(A_{0}) + s(A_t) \\
+         &  = (1-(1/2)^t)s(A_0) + s(A_t) \enspace .
+   \end{align*}
+  So all that remains is to prove that $s(A_t)\le (1/2)^{t+1}s(A_0)$.
+
+  Now, the key inequality is 
   \begin{equation}
-      w(A_j) \le (2/3)w(A_{j-1})\frac{s(A_{j-1})}{s(A_j)} \enspace .
-        \eqlabel{string}
+      w(A_i) \le w(R(A_{i-1}))\cdot\frac{s(R(A_{i-1}))}{s(A_i)}
   \end{equation}
-  Beginning at $A_0$ and repeatedly applying \eqref{string}, we obtain:
+  which implies
+  \begin{equation}
+       w(A_i) \le (2/3)w(A_{i-1})\cdot\frac{s(A_{i-1})}{2s(A_i)}
+             = (1/3)w(A_{i-1})\cdot\frac{s(A_{i-1})}{s(A_i)}
+             \eqlabel{strings}
+  \end{equation}
+
+  Beginning at $A_0$ and repeatedly applying \eqref{strings}, we obtain:
   \[
-      w(A_t) \le (2/3)^t w(A_0)\frac{s(A_0)}{s(A_t)} \enspace .
+      w(A_t) \le (1/3)^t w(A_0)\cdot\frac{s(A_0)}{s(A_t)} 
+             \le (1/2)(1/3)^t \cdot\frac{s(A_0)}{s(A_t)} \enspace .
   \]
   On the other hand, $w(A_t)\ge 1/r$, so  
   \[ 
-      1/r \le (2/3)^t w(A_0)\frac{s(A_0)}{s(A_t)} \enspace .
+      1/r \le (1/2)(1/3)^t\cdot\frac{s(A_0)}{s(A_t)} \enspace .
   \]
   and rearranging terms yields
   \[
-     s(A_t) \le (2/3)^t r w(A_0)s(A_0) \le (2/3)^t r s(A_0) \le (1/2)s(A_0)
+     s(A_t) \le (1/2)(1/3)^t r s(A_0) \le (1/2)^{t+1}s(A_0)
   \]
-  for $t = \lceil\log_{3/2}(2r)\rceil$.
+  for $t = \ceil{\log_{3/2} r}$.
 \end{proof}
 
 
-\begin{thm}
-  For every integer $\alpha$, there exists a graph of pathwidth 3 whose
-  anagram-free chromatic number is greater than $\alpha$.
-\end{thm}
-
-\begin{proof}
+\begin{proof}[Proof of \thmref{main}]
 Let $G$ be the graph with vertex set
 $V(G)=\{v_0,\ldots,v_{n-1},w_0,\ldots,w_{n-1}\}$ and with edge set
 \[
