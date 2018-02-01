@@ -70,26 +70,28 @@ urlcolor=linkblue}
 \section{Introduction}
 \pagenumbering{arabic}
 
-A string $s=pq$ that is the concatenation of two equal length strings
- $p$ and $q$ is called an \emph{anagram} if $p$ is a permutation of $q$.
-For a graph $G$, a $c$-colouring $\phi:V(G)\to\{1,\ldots,c\}$ is
+A string $s=s_1,\ldots,s_{2k}$ is called an \emph{anagram} if $s_1,\ldots,s_k$ is a permutation of $s_{k+1},\ldots,s_{2k}$.
+For a graph $G$, a $c$-colouring $\varphi:V(G)\to\{1,\ldots,c\}$ is
 \emph{anagram-free} if, for every path $v_1,v_2,\ldots,v_{2_k}$ in
-$G$, the string $\phi(v_1),\ldots,\phi(v_{2k})$ is not an anagram.  The
+$G$, the string $\varphi(v_1),\ldots,\varphi(v_{2k})$ is not an anagram.  The
 \emph{anagram-free chromatic number} of $G$, denoted $\pi_\alpha(G)$, is
 the smallest value of $c$ for which $G$ has an anagram-free $c$-colouring.
 
-Answering a long-standing question of Er\H{o}s and Brown \cite{X},
-Ker\"anen showed that the path $P_n$ on $n$ vertices has an anagram-free
-4-colouring.  A straightforward divide-and-conquer algorithm applied to
-$n$-vertex graphs of treewidth $k$ yields an anagram-free $O(k\log n)$
-colouring.  The same divide-and-conquer algoritm, applied to graphs that
-exclude a fixed minor gives an anagram free $O(\sqrt{n})$-colouring.
-An interesting variant of this is given by Wilson and Wood \cite{X}
-who give a divide-and-conquer method of colouring trees of pathwidth $k$
-that uses only $4k+1$ colours.  On the negative side, Kamčev, Łuczak,
+Answering a long-standing question of Erd\H{o}s and Brown, Ker\"anen
+showed that the path $P_n$ on $n$ vertices has an anagram-free
+4-colouring.  A straightforward divide-and-conquer algorithm applied
+to any $n$-vertex graph of treewidth $k$ yields an anagram-free
+$O(k\log n)$-colouring.  The same divide-and-conquer algoritm,
+applied to graphs that exclude a fixed minor gives an anagram
+free $O(\sqrt{n})$-colouring.  An interesting variant of this is
+given by Wilson and Wood \cite{wilson.wood:anagram-free} who give a
+divide-and-conquer method of colouring trees of pathwidth $k$ that uses
+only $4k+1$ colours.  Wilson and Wood \cite{wilson.wood:anagram-free2}
+show that any graph can be subdivided (by splitting edges into paths)
+so that the resulting subdivision has an anagram-free 8-colouring.
+On the negative side, Kamčev, Łuczak,
 and Sudakov \cite{kamcev.luczak.ea:anagram-free} and Wilson and Wood
-\cite{wilson.wood:anagram-free} have shown that there are trees, and
-even binary trees with arbitrarily large anagram-free chromatic number.
+\cite{wilson.wood:anagram-free} have shown that there are trees---even binary trees---with arbitrarily large anagram-free chromatic number.
 These results are summarized in \tabref{results}.
 
 \begin{table}
@@ -112,7 +114,10 @@ These results are summarized in \tabref{results}.
               & \cite{kamcev.luczak.ea:anagram-free} \\ 
        $4$-regular graphs & $\pi_\alpha(G)\in \Omega(\sqrt{n}{\log n})$ & \cite{kamcev.luczak.ea:anagram-free} \\
        $d$-regular graphs & $\pi_\alpha(G)\in \Omega(n)$ & \cite{kamcev.luczak.ea:anagram-free} \\
-       Graphs of pathwidth 3 & $\pi_\alpha(G) \in \omega(1)$ & \thmref{main}
+       Graphs of pathwidth 3 & $\pi_\alpha(G) \in \omega(1)$ 
+         & \thmref{main} \\
+       Subdivisions of graphs & $\pi_\alpha(G) \le 8$ 
+         & \cite{wilson.wood:anagram-free2} \\
     \end{tabular}
   \end{center}
   \caption{Bounds on anagram-free chromatic number.  Upper bounds apply to all graphs in the class. Lower bounds apply to some graphs in the class.}
@@ -122,9 +127,12 @@ These results are summarized in \tabref{results}.
 An obvious question that arises from these results is the question
 of whether anagram-free chromatic number is pathwidth-bounded; can
 $\pi_\alpha(G)$ be upper bounded by some function of the pathwidth
-of $G$?  Wilson and Wood showed this is is true for \emph{trees} of
-bounded pathwidth.  The purpose of this note is to show that this is
-not true for graphs of bounded pathwidth:
+of $G$?  Wilson and Wood showed this is is true if $G$ is a \emph{tree}.  
+
+
+
+The purpose of this note is to show that the result of Wilson and
+Wood can not be strengthened to graphs of pathwidth $k$.
 
 \begin{thm}\thmlabel{main}
   For every integer $\alpha$, there exists a planar graph of pathwidth
@@ -143,12 +151,52 @@ $s$ is \emph{$i$-unbalanced}.  If $s$ is $i$-balanced for each $i\in \Sigma$,
 then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
 
 \begin{lem}\lemlabel{balanced}
-  For any integer $c$ there exists an integer $n$ such that any string
-  of length $n$ over an alphabet $\Sigma$ of size $c$ contains a balanced
+  For any integer $c$ there exists an integer $n=n(c)$ such that any string
+  of length $n$ over an alphabet of size $c$ contains a balanced
   substring.
 \end{lem}
 
-\begin{proof}
+Before proving \lemref{balanced} which is the most technical part of the paper,
+we show how it is used to prove \thmref{main}.
+
+\begin{proof}[Proof of \thmref{main}]
+Let $G$ be the graph with vertex set
+$V(G)=\{v_0,\ldots,v_{n-1},w_0,\ldots,w_{n-1}\}$ and with edge set
+\[
+  E(G) = \{v_iw_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{v_iw_{i+1},v_{i+1}w_i\} \enspace .
+\]
+We call the pairs $v_i$ and $w_i$ \emph{twins}.
+The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
+
+Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
+using $\alpha$ colours. From this we derive a string $s=s_0\ldots,s_{n-1}$
+where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.  Observe that $s$ is
+a string over an alphabet $\Sigma$ of size $c=\binom{\alpha}{2}$.
+By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
+is sufficiently large.  Since $t$
+is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
+ graph $B$ whose edges join
+elements of the first half of $t$ to equal elements in the second half
+and having the following properties: $B$ has minimum degree 1, maximum
+degree 2 and contains no path of length greater than 2.  Thus, the
+connected components of $B$ are paths of length 1 and paths of length 2.
+
+We will use $B$ to construct a path $P$ in $G$ whose colouring is an
+anagram.  For each length-1 component $s_is_j$ of $B$, the path $P$
+will include $v_i$, $w_i$, $v_j$ and $w_j$.  For each length-2 path
+$s_is_js_k$ the path $P$ include $v_i$, $v_j$, $w_j$, and the unique
+vertex $u\in\{v_k,w_k\}$ such that $\varphi(u)\neq \varphi(v_i)$.
+The ordering of vertices along the path $P$ is by increasing order
+of index, with ties (among $v_i$ and $w_i$) broken arbitrarily.
+The fact that $B$ has minimum degree 1 ensures that $P=x_1,\ldots,x_m$
+is indeed a path in $G$.  The choice of vertices in $P$ ensures that
+$\varphi(x_1),\ldots,\varphi(x_m)$ is an anagram since length-1 components
+of $B$ create twins in the first half that cancel twins in the second
+half and length-2 components create twins in one half that cancel two
+vertices in the other half.
+\end{proof}
+
+\begin{proof}[Proof of \lemref{balanced}]
   Call a string a \emph{$c$-string} if it is over an alphabet of size $c$
   and call a string \emph{good} if it contains no balanced substring.
   For each $c\in\N$, let $h_c$ denote the minimum integer for which
@@ -159,11 +207,20 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
   $c$ ensures that $h_{c-1}$ is finite and that any good (sub)string of
   length at least $r:=2^{h_{c-1}}$ uses an alphabet of size at least $c$.
 
-  Let $s$ be a good $c$-string over the alphabet $\Sigma$ and having length $r2^{h}$, for some value $h$
-  to specified shortly.   Consider the complete binary tree $T$ of
-  height $h$ whose leaves, in order, are the length-1 substrings of
-  $s$ and for which each internal node is the substring obtained by
-  concatenating the node's left and right child.
+  Let $s$ be a good string over the alphabet $\Sigma=\{1,\ldots,c\}$ and having
+  length $r2^{h}$, for some value $h$ to specified shortly.   Consider
+  the complete binary tree $T$ of height $h$ whose leaves, in order,
+  are the length-1 substrings of $s$ and for which each internal node is
+  the substring obtained by concatenating the node's left and right child.
+  See \figref{binary-tree}.
+
+  \begin{figure}
+    \begin{center}
+       FIGURE 
+    \end{center}
+    \caption{Building a binary tree $T$ over the string $s$.}
+    \figlabel{binary-tree}
+  \end{figure}
 
   For each node $v$ of $T$, let $h(v)$ denote the height of $v$'s subtree
   and $s(v)=2^{h(v)}$ denote the length of the string $v$. For each
@@ -177,10 +234,10 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
 
   For $i\in\Sigma$, let $S_i=\{v\in V(T): \ell(v)=i\}$ and observe that 
   \[
-      \sum_{i\in\Sigma} \sum_{v\in S_i} s(v) = (h+\log_2 r)r2^{h}
+      \sum_{v\in V(T)}s(v)=\sum_{i\in\Sigma} \sum_{v\in S_i} s(v) = (h+\log_2 r)r2^{h}
   \]
   and therefore, there exists some $i^*\in\Sigma$ such that
-  $s(S_i)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$. From
+  $\sum_{v\in S_{i^*}}s(v)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$. From
   this point on we use the shorthands (for any $R\subseteq V(T)$) 
   $s(R):=\sum_{v\in R}s(v)$ and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
 
@@ -235,7 +292,8 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
          &\le (1/2)s(A_0) + (1/4)s(A_0) + \cdots + (1/2)^t s(A_{0}) + s(A_t) \\
          &  = (1-(1/2)^t)s(A_0) + s(A_t) \enspace .
    \end{align*}
-  So all that remains is to prove that $s(A_t)\le (1/2)^{t+1}s(A_0)$.
+  So all that remains to establish \eqref{t} is to prove that 
+  $s(A_t)\le (1/2)^{t+1}s(A_0)$.
 
   Now, the key inequality is 
   \begin{equation}
@@ -262,44 +320,6 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
      s(A_t) \le (1/2)(1/3)^t r s(A_0) \le (1/2)^{t+1}s(A_0)
   \]
   for $t = \ceil{\log_{3/2} r}$.
-\end{proof}
-
-
-\begin{proof}[Proof of \thmref{main}]
-Let $G$ be the graph with vertex set
-$V(G)=\{v_0,\ldots,v_{n-1},w_0,\ldots,w_{n-1}\}$ and with edge set
-\[
-  E(G) = \{v_iw_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{v_iw_{i+1},v_{i+1}w_i\} \enspace .
-\]
-We call the pairs $v_i$ and $w_i$ \emph{twins}.
-The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
-
-Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
-using $\alpha$ colours. From this we derive a string $s=s_0\ldots,s_{n-1}$
-where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.  Observe that $s$ is
-a string over an alphabet $\Sigma$ of size $c=\binom{\alpha}{2}$.
-By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
-is sufficiently large.  Since $t$
-is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
- graph $B$ whose edges join
-elements of the first half of $t$ to equal elements in the second half
-and having the following properties: $B$ has minimum degree 1, maximum
-degree 2 and contains no path of length greater than 2.  Thus, the
-connected components of $B$ are paths of length 1 and paths of length 2.
-
-We will use $B$ to construct a path $P$ in $G$ whose colouring is an
-anagram.  For each length-1 component $s_is_j$ of $B$, the path $P$
-will include $v_i$, $w_i$, $v_j$ and $w_j$.  For each length-2 path
-$s_is_js_k$ the path $P$ include $v_i$, $v_j$, $w_j$, and the unique
-vertex $u\in\{v_k,w_k\}$ such that $\varphi(u)\neq \varphi(v_i)$.
-The ordering of vertices along the path $P$ is by increasing order
-of index, with ties (among $v_i$ and $w_i$) broken arbitrarily.
-The fact that $B$ has minimum degree 1 ensures that $P=x_1,\ldots,x_m$
-is indeed a path in $G$.  The choice of vertices in $P$ ensures that
-$\varphi(x_1),\ldots,\varphi(x_m)$ is an anagram since length-1 components
-of $B$ create twins in the first half that cancel twins in the second
-half and length-2 components create twins in one half that cancel two
-vertices in the other half.
 \end{proof}
 
 
