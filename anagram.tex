@@ -15,7 +15,7 @@ urlcolor=linkblue}
 
 \title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth Bounded}}
 
-\author{Pat Morin and Friends}%
+\author{Vida Dujmović and Pat Morin}%
 
 %\usepackage[mathlines]{lineno}
 %\linenumbers
@@ -70,18 +70,48 @@ urlcolor=linkblue}
 \section{Introduction}
 \pagenumbering{arabic}
 
-A string $s=pq$ if an \emph{anagram} if $p$ is a permutation of $q$.
+A string $s=pq$ is an \emph{anagram} if $p$ is a permutation of $q$.
 For a graph $G$, a $c$-colouring $\phi:V(G)\to\{1,\ldots,c\}$ is
 \emph{anagram-free} if, for every path $v_1,v_2,\ldots,v_{2_k}$ in
-$G$, the string $\phi(v_1),\ldots,\phi(v_{2k}$ is not an anagram.  The
+$G$, the string $\phi(v_1),\ldots,\phi(v_{2k})$ is not an anagram.  The
 \emph{anagram-free chromatic number} of $G$, denoted $\pi_\alpha(G)$, is
 the smallest value of $c$ for which $G$ has an anagram-free $c$-colouring.
 
-Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:XXX} and Wilson
-and Wood \cite{wilson.wood:XXX} have shown that there are trees, and
-even binary trees with arbitrarily large anagram-free chromatic number.
+Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:anagram-free} and
+Wilson and Wood \cite{wilson.wood:XXX} have shown that there are trees,
+and even binary trees with arbitrarily large anagram-free chromatic
+number.  In terms of upper bounds, $n$-vertex graphs of treewidth $k$
+admit a straightforward divide-and-conquer algorithm that gives an
+anagram-free $O(k\log n)$ colouring.  The same divide-and-conquer algorithm,
+applied to graphs from 
+
+
 On the positive side, $n$-vertex graphs of treewidth $k$ have anagram-free
-chromatic number $O(k\log n)$.  Wilson and Wood showed that every tree
+chromatic number $O(k\log n)$. 
+These results are summarized in \tabref{results}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{llll}
+      \textbf{Graphs} & \textbf{Bound} & \textbf{Reference} \\
+       Paths & $\pi_\alpha(G)\le 4$ & \cite{keranen:abelian}  \\
+       Graphs of treewidth $k$ & $\pi_\alpha(G)\in O(k\log n)$ & folklore  \\
+       Graphs with an excluded minor of size $h$ & $\pi_\alpha(G)\in O(h^{3/2}n^{1/2})$ 
+              & \cite{kamcev.luczak.ea:anagram-free} \\
+       Trees of pathwidth $k$ & $\pi_\alpha(G)\in O(k)$ 
+              & \cite{wilson.wood:anagram-free} \\
+       Trees of radius $r$ & $\pi_\alpha(G)\in O(r)$ 
+              & \cite{wilson.wood:anagram-free} \\
+       Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
+         & \cite{kamcev.luczak.ea:anagram-free,wilson.wood:anagram-free} \\
+       Binary trees & $\pi_\alpha(G)\in\Omega(\sqrt{\log n/\log\log n})$ 
+              & \cite{kamcev.luczak.ea:anagram-free} \\ 
+    \end{tabular}
+  \end{center}
+  \caption{Bounds on anagram-free chromatic number.  Upper bounds apply to all graphs in the class. Lower bounds apply to some graphs in the class.}
+\end{table}
+
+ Wilson and Wood showed that every tree
 of pathwidth $k$ has anagram-free chromatic number at most $4(k+1)$.
 This raises the question of whether this result can be strengthened:
 Is there some function $f(k)$ such that every graph of pathwidth $k$
