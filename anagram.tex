@@ -55,9 +55,9 @@ urlcolor=linkblue}
 %
 \begin{abstract}
   The anagram-free chromatic number is a new graph parameter introduced
-  independently Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:XXX}
-  and Wilson and Wood \cite{wilson.wood:XXX}.  In this note, we show
-  that there are graph of pathwidth 3 with arbitrarily large anagram-free
+  independently Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:anagram-free}
+  and Wilson and Wood \cite{wilson.wood:anagram-free}.  In this note, we show
+  that there are graphs of pathwidth 3 with arbitrarily large anagram-free
   chromatic number.
 \end{abstract}
 %\end{titlepage}
@@ -70,69 +70,77 @@ urlcolor=linkblue}
 \section{Introduction}
 \pagenumbering{arabic}
 
-A string $s=pq$ is an \emph{anagram} if $p$ is a permutation of $q$.
+A string $s=pq$ that is the concatenation of two equal length strings
+ $p$ and $q$ is called an \emph{anagram} if $p$ is a permutation of $q$.
 For a graph $G$, a $c$-colouring $\phi:V(G)\to\{1,\ldots,c\}$ is
 \emph{anagram-free} if, for every path $v_1,v_2,\ldots,v_{2_k}$ in
 $G$, the string $\phi(v_1),\ldots,\phi(v_{2k})$ is not an anagram.  The
 \emph{anagram-free chromatic number} of $G$, denoted $\pi_\alpha(G)$, is
 the smallest value of $c$ for which $G$ has an anagram-free $c$-colouring.
 
-Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:anagram-free} and
-Wilson and Wood \cite{wilson.wood:XXX} have shown that there are trees,
-and even binary trees with arbitrarily large anagram-free chromatic
-number.  In terms of upper bounds, $n$-vertex graphs of treewidth $k$
-admit a straightforward divide-and-conquer algorithm that gives an
-anagram-free $O(k\log n)$ colouring.  The same divide-and-conquer algorithm,
-applied to graphs from 
-
-
-On the positive side, $n$-vertex graphs of treewidth $k$ have anagram-free
-chromatic number $O(k\log n)$. 
+Answering a long-standing question of Er\H{o}s and Brown \cite{X},
+Ker\"anen showed that the path $P_n$ on $n$ vertices has an anagram-free
+4-colouring.  A straightforward divide-and-conquer algorithm applied to
+$n$-vertex graphs of treewidth $k$ yields an anagram-free $O(k\log n)$
+colouring.  The same divide-and-conquer algoritm, applied to graphs that
+exclude a fixed minor gives an anagram free $O(\sqrt{n})$-colouring.
+An interesting variant of this is given by Wilson and Wood \cite{X}
+who give a divide-and-conquer method of colouring trees of pathwidth $k$
+that uses only $4k+1$ colours.  On the negative side, Kamčev, Łuczak,
+and Sudakov \cite{kamcev.luczak.ea:anagram-free} and Wilson and Wood
+\cite{wilson.wood:anagram-free} have shown that there are trees, and
+even binary trees with arbitrarily large anagram-free chromatic number.
 These results are summarized in \tabref{results}.
 
 \begin{table}
   \begin{center}
     \begin{tabular}{llll}
-      \textbf{Graphs} & \textbf{Bound} & \textbf{Reference} \\
-       Paths & $\pi_\alpha(G)\le 4$ & \cite{keranen:abelian}  \\
+      \textbf{Graphs} & \textbf{Bound} & \textbf{Reference} \\ \hline
+       Paths & $\pi_\alpha(G)= 4$ & \cite{keranen:abelian}  \\
        Graphs of treewidth $k$ & $\pi_\alpha(G)\in O(k\log n)$ & folklore  \\
        Graphs with an excluded minor of size $h$ & $\pi_\alpha(G)\in O(h^{3/2}n^{1/2})$ 
               & \cite{kamcev.luczak.ea:anagram-free} \\
-       Trees of pathwidth $k$ & $\pi_\alpha(G)\in O(k)$ 
+       Trees & $\pi_\alpha(G)\in\Omega(\log n/\log\log n)$ 
               & \cite{wilson.wood:anagram-free} \\
-       Trees of radius $r$ & $\pi_\alpha(G)\in O(r)$ 
+       Trees of pathwidth $k$ & $k\le \pi_\alpha(G)\le 4k+1$ 
+              & \cite{wilson.wood:anagram-free} \\
+       Trees of radius $r$ & $r\le \pi_\alpha(G)\le r+1$ 
               & \cite{wilson.wood:anagram-free} \\
        Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
          & \cite{kamcev.luczak.ea:anagram-free,wilson.wood:anagram-free} \\
        Binary trees & $\pi_\alpha(G)\in\Omega(\sqrt{\log n/\log\log n})$ 
               & \cite{kamcev.luczak.ea:anagram-free} \\ 
+       $4$-regular graphs & $\pi_\alpha(G)\in \Omega(\sqrt{n}{\log n})$ & \cite{kamcev.luczak.ea:anagram-free} \\
+       $d$-regular graphs & $\pi_\alpha(G)\in \Omega(n)$ & \cite{kamcev.luczak.ea:anagram-free} \\
+       Graphs of pathwidth 3 & $\pi_\alpha(G) \in \omega(1)$ & \thmref{main}
     \end{tabular}
   \end{center}
   \caption{Bounds on anagram-free chromatic number.  Upper bounds apply to all graphs in the class. Lower bounds apply to some graphs in the class.}
+  \tablabel{results}
 \end{table}
 
- Wilson and Wood showed that every tree
-of pathwidth $k$ has anagram-free chromatic number at most $4(k+1)$.
-This raises the question of whether this result can be strengthened:
-Is there some function $f(k)$ such that every graph of pathwidth $k$
-has anagram-free chromatic number at most $f(k)$.  The main purpose of
-this note is to show that the answer to this question is negative:
+An obvious question that arises from these results is the question
+of whether anagram-free chromatic number is pathwidth-bounded; can
+$\pi_\alpha(G)$ be upper bounded by some function of the pathwidth
+of $G$?  Wilson and Wood showed this is is true for \emph{trees} of
+bounded pathwidth.  The purpose of this note is to show that this is
+not true for graphs of bounded pathwidth:
 
 \begin{thm}\thmlabel{main}
-  For every integer $\alpha$, there exists a graph of pathwidth 3 whose
-  anagram-free chromatic number is greater than $\alpha$.
+  For every integer $\alpha$, there exists a planar graph of pathwidth
+  3 whose anagram-free chromatic number is greater than $\alpha$.
 \end{thm}
 
 
 
-\section{The Proof}
+\section{Proof of \thmref{main}}
 
 Let $s$ be a string over some alphabet $\Sigma$.  For each $i\in\Sigma$,
 $n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is the
 concatenation of two equal length strings $p$ and $q$, then we say that
 $s$ is \emph{$i$-balanced} if $n_i(q)/2\le n_i(p)\le 2n_i(q)$ otherwise
-$s$ is $i$-unbalanced.  If $s$ is $i$-balanced for each $i\in \Sigma$,
-then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
+$s$ is \emph{$i$-unbalanced}.  If $s$ is $i$-balanced for each $i\in \Sigma$,
+then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
 
 \begin{lem}\lemlabel{balanced}
   For any integer $c$ there exists an integer $n$ such that any string
@@ -142,18 +150,17 @@ then we say that $s$ is \emph{balanced}, otherwise $s$ is unbalanced.
 
 \begin{proof}
   Call a string a \emph{$c$-string} if it is over an alphabet of size $c$
-  and call a string \emph{good} if it contains no balanced substring.  Let
-  $h_c$ denote the minimum integer for which there is no good $c$-string
-  of length $2^{h_c}$.  Thus, our goal is to show that $h_c<\infty$.
-
-  Suppose the lemma is not true so that there exists some minimum value
+  and call a string \emph{good} if it contains no balanced substring.
+  For each $c\in\N$, let $h_c$ denote the minimum integer for which
+  there is no good $c$-string of length $2^{h_c}$.  Thus, our goal is
+  to show that $h_c$ is finite for each $c\in\N$.
+  Suppose this is not true so that there exists some minimum value
   $c$ for which $h_c$ is infinite.  Choosing the minimum such value of 
   $c$ ensures that $h_{c-1}$ is finite and that any good (sub)string of
   length at least $r:=2^{h_{c-1}}$ uses an alphabet of size at least $c$.
 
-  Let $s$ be a good $c$-string of length $r2^{h}$, for some value $h$
-  to specified shortly.  Assume that $s$ is a string over the alphabet
-  $\Sigma=\{1,\ldots,c\}$. Consider the complete binary tree $T$ of
+  Let $s$ be a good $c$-string over the alphabet $\Sigma$ and having length $r2^{h}$, for some value $h$
+  to specified shortly.   Consider the complete binary tree $T$ of
   height $h$ whose leaves, in order, are the length-1 substrings of
   $s$ and for which each internal node is the substring obtained by
   concatenating the node's left and right child.
@@ -294,6 +301,10 @@ of $B$ create twins in the first half that cancel twins in the second
 half and length-2 components create twins in one half that cancel two
 vertices in the other half.
 \end{proof}
+
+
+\bibliographystyle{plain}
+\bibliography{anagram}
 
 \end{document}
 
