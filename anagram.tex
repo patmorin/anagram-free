@@ -130,7 +130,6 @@ $\pi_\alpha(G)$ be upper bounded by some function of the pathwidth
 of $G$?  Wilson and Wood showed this is is true if $G$ is a \emph{tree}.  
 This quest
 
-
 The purpose of this note is to show that the result of Wilson and
 Wood can not be strengthened to graphs of pathwidth $k$.
 
@@ -160,6 +159,7 @@ Before proving \lemref{balanced} which is the most technical part of the paper,
 we show how it is used to prove \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
+Refer to \figref{graph}.
 Let $G$ be the graph with vertex set
 $V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
 \[
@@ -168,18 +168,37 @@ $V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
 We call the pairs $x_i$ and $y_i$ \emph{twins}.
 The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
 
+\begin{figure}
+  \begin{center}
+    \includegraphics{figs/g}
+  \end{center}
+  \caption{The graph $G$ in the proof of \thmref{main}.}
+  \figlabel{graph}
+\end{figure}
+
 Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
 using $\alpha$ colours. From this we derive a string $s=s_0\ldots,s_{n-1}$
 where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.  Observe that $s$ is
 a string over an alphabet $\Sigma$ of size $c=\binom{\alpha}{2}$.
 By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
-is sufficiently large.  Since $t$
+is sufficiently large.  Refer to \figref{b}. Since $t$
 is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
  graph $B$ whose edges join
 elements of the first half of $t$ to equal elements in the second half
 and having the following properties: $B$ has minimum degree 1, maximum
 degree 2 and contains no path of length greater than 2.  Thus, the
 connected components of $B$ are paths of length 1 and paths of length 2.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{figs/graph}
+  \end{center}
+  \caption{A balanced substring $t$ of $s$ produces a path in $G$ whose
+    colour sequence is an anagram.}
+  \figlabel{b}
+\end{figure}
+
+
 
 We will use $B$ to construct a path $P$ in $G$ whose colouring is an
 anagram.  For each length-1 component $s_is_j$ of $B$, the path $P$

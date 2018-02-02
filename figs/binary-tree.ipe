@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180201135458" modified="D:20180201135500"/>
+<info created="D:20180201135458" modified="D:20180201225726"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -220,13 +220,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -254,9 +254,11 @@ h
 <page>
 <layer name="alpha"/>
 <layer name="beta"/>
-<layer name="gamma"/>
+<layer name="labels"/>
+<layer name="epsilon"/>
 <view layers="alpha beta" active="alpha"/>
-<view layers="alpha gamma" active="gamma"/>
+<view layers="alpha labels" active="labels"/>
+<view layers="alpha epsilon" active="epsilon"/>
 <path layer="alpha" matrix="0.9 0 0 0.9 -66.4 63.2" stroke="black" join="1">
 128 640 m
 128 624 l
@@ -278,103 +280,7 @@ h
 112 704 l
 h
 </path>
-<text layer="beta" matrix="1 0 0 1 -88 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -88 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -88 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<path layer="alpha" matrix="0.996875 0 0 0.9 0.95 79.2" stroke="black" join="1">
+<path matrix="0.996875 0 0 0.9 0.95 79.2" stroke="black" join="1">
 48 800 m
 48 784 l
 560 784 l
@@ -1042,103 +948,39 @@ h
 80 688.8 m
 96 671.2 l
 </path>
-<text layer="beta" matrix="1 0 0 1 -88 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -88 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text layer="alpha" matrix="1 0 0 1 -88 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 -72 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -56 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 -40 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 -24 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 -8 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 8 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 24 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 40 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 56 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 72 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 88 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 104 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 120 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 136 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 152 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 168 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 184 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 200 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 216 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 232 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 248 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 264 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 280 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 296 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 312 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 328 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">b</text>
-<text matrix="1 0 0 1 344 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">c</text>
-<text matrix="1 0 0 1 360 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.428" height="4.289" depth="0" halign="center" valign="baseline">e</text>
-<text matrix="1 0 0 1 376 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<text matrix="1 0 0 1 392 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="4.289" depth="0" halign="center" valign="baseline">a</text>
-<text matrix="1 0 0 1 408 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="5.535" height="6.918" depth="0" halign="center" valign="baseline">d</text>
-<path layer="gamma" stroke="black" pen="heavier" cap="1">
+<text matrix="1 0 0 1 -88 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 4.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<path layer="labels" stroke="black" pen="heavier" cap="1">
 64 656.8 m
 72.8 639.2 l
 </path>
@@ -1249,6 +1091,348 @@ h
 <path stroke="black" pen="heavier" cap="1">
 496 720.8 m
 464 703.2 l
+</path>
+<text layer="beta" matrix="1 0 0 1 -88 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -88 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -88 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -88 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -88 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 -72 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -56 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 -40 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -24 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 -8 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 8 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 24 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 40 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 56 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 72 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 88 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 104 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 120 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 136 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 152 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 168 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 184 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 200 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 216 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 232 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 248 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 264 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 280 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 296 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 312 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 328 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 344 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 360 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 376 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 392 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 408 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text layer="labels" matrix="1 0 0 1 -80 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -48 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 -16 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 16 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 48 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 80 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 112 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 144 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 176 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 208 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 240 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 272 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 304 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 336 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 368 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 400 36.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 -64 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">4</text>
+<text matrix="1 0 0 1 0 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 64 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 128 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">2</text>
+<text matrix="1 0 0 1 192 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 256 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 320 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 384 68.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 -32 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 96 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 224 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 352 100.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">1</text>
+<text matrix="1 0 0 1 32 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">5</text>
+<text matrix="1 0 0 1 288 132.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<text matrix="1 0 0 1 160 164.541" transformations="translations" pos="144 624" stroke="black" type="label" width="4.981" height="6.42" depth="0" halign="center" valign="baseline">3</text>
+<path layer="epsilon" stroke="black" pen="heavier" cap="1">
+64 656.8 m
+72.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+96 656.8 m
+104.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+128 656.8 m
+120.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+160 656.8 m
+168.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+192 656.8 m
+200.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+224 656.8 m
+232.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+256 656.8 m
+248.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+288 656.8 m
+296.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+320 656.8 m
+328.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+352 656.8 m
+344.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+384 656.8 m
+376.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+416 656.8 m
+424.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+448 656.8 m
+440.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+480 656.8 m
+472.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+512 656.8 m
+520.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+544 656.8 m
+536.8 639.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+80 688.8 m
+64 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+144 688.8 m
+160 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+208 688.8 m
+224 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+272 688.8 m
+288 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+336 688.8 m
+352 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+400 688.8 m
+416 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+464 688.8 m
+480 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+528 688.8 m
+544 671.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+112 720.8 m
+144 703.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+240 720.8 m
+208 703.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+368 720.8 m
+336 703.2 l
+</path>
+<path stroke="black" pen="heavier" cap="1">
+496 720.8 m
+464 703.2 l
+</path>
+<text matrix="1 0 0 1 -64 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,0,\frac24,\frac14,\frac14)</text>
+<text matrix="1 0 0 1 0 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="55.89" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac14,\frac14,\frac14,0,\frac14)</text>
+<text matrix="1 0 0 1 64 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac14,\frac14,\frac24,0,0)</text>
+<text matrix="1 0 0 1 128 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac14,\frac24,\frac14,0)</text>
+<text matrix="1 0 0 1 192 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac14,\frac14,0,\frac24,0)</text>
+<text matrix="1 0 0 1 256 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac14,\frac24,0,0,\frac14)</text>
+<text matrix="1 0 0 1 320 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac24,\frac14,0,\frac14)</text>
+<text matrix="1 0 0 1 384 69.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="54.509" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac14,0,0,\frac24,\frac14)</text>
+<text matrix="1 0 0 1 -32 101.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="57.271" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac18,\frac18,\frac38,\frac18,\frac28)</text>
+<text matrix="1 0 0 1 96 101.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="55.89" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac18,\frac28,\frac48,\frac18,0)</text>
+<text matrix="1 0 0 1 224 101.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="55.89" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac28,\frac38,0,\frac28,\frac18)</text>
+<text matrix="1 0 0 1 352 101.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="57.271" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac18,\frac28,\frac18,\frac28,\frac28)</text>
+<text matrix="1 0 0 1 32 133.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="77.127" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac2{16},\frac3{16},\frac7{16},\frac2{16},\frac2{16})</text>
+<text matrix="1 0 0 1 288 133.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="77.127" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac3{16},\frac5{16},\frac1{16},\frac4{16},\frac3{16})</text>
+<text matrix="1 0 0 1 160 165.504" transformations="rigid" pos="144 624" stroke="black" type="label" width="77.127" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac5{32},\frac8{32},\frac8{32},\frac6{32},\frac5{32})</text>
+<text matrix="0.5 0 0 0.5 -8 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,0,\frac12,\frac12,0)</text>
+<text matrix="0.5 0 0 0.5 24 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,0,\frac12,0,\frac12)</text>
+<text matrix="0.5 0 0 0.5 56 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,0,0,\frac12)</text>
+<text matrix="0.5 0 0 0.5 88 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac12,0,\frac12,0,0)</text>
+<text matrix="0.5 0 0 0.5 120 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,\frac12,0,0)</text>
+<text matrix="0.5 0 0 0.5 152 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac12,0,\frac12,0,0)</text>
+<text matrix="0.5 0 0 0.5 184 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,0,\frac12,\frac12,0)</text>
+<text matrix="0.5 0 0 0.5 216 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,\frac12,0,0)</text>
+<text matrix="0.5 0 0 0.5 248 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,0,\frac12,0)</text>
+<text matrix="0.5 0 0 0.5 280 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac12,0,0,\frac12,0)</text>
+<text matrix="0.5 0 0 0.5 312 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,0,0,\frac12)</text>
+<text matrix="0.5 0 0 0.5 344 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac12,\frac12,0,0,0)</text>
+<text matrix="0.5 0 0 0.5 376 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,0,0,\frac12)</text>
+<text matrix="0.5 0 0 0.5 408 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,\frac12,\frac12,0,0)</text>
+<text matrix="0.5 0 0 0.5 440 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(0,0,0,\frac12,\frac12)</text>
+<text matrix="0.5 0 0 0.5 472 350.752" pos="144 624" stroke="black" type="label" width="53.129" height="8.422" depth="3.43" halign="center" valign="baseline" style="math">(\frac12,0,0,\frac12,0)</text>
+<path layer="labels" stroke="black" pen="heavier">
+304 784.8 m
+432 767.2 l
+</path>
+<path stroke="black" pen="heavier">
+176 752.8 m
+112 735.2 l
 </path>
 </page>
 </ipe>
