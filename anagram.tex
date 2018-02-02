@@ -235,7 +235,7 @@ vertices in the other half.
 
   \begin{figure}
     \begin{center}
-       FIGURE 
+       \includegraphics[width=.98\textwidth]{figs/binary-tree-1}
     \end{center}
     \caption{Building a binary tree $T$ over the string $s$.}
     \figlabel{binary-tree}
@@ -251,7 +251,16 @@ vertices in the other half.
   $v$ of $T$ the \emph{label} $\ell(v):=\min\{i\in\Sigma: \mbox{$v$
   is $i$-unbalanced}\}$.
 
-  For $i\in\Sigma$, let $S_i=\{v\in V(T): \ell(v)=i\}$ and observe that 
+  \begin{figure}
+    \begin{center}
+       \includegraphics[width=.98\textwidth]{figs/binary-tree-3} 
+    \end{center}
+    \caption{The tree $T$ with the vector $(w_1(v),\ldots,w_5(v))$ for each
+     internal node $v$.  The unbalanced index that defines $\ell(v)$ is hilited for each node.}
+    \figlabel{binary-tree-2}
+  \end{figure}
+
+  For each $i\in\Sigma$, let $S_i=\{v\in V(T): \ell(v)=i\}$ and observe that 
   \[
       \sum_{v\in V(T)}s(v)=\sum_{i\in\Sigma} \sum_{v\in S_i} s(v) = (h+\log_2 r)r2^{h}
   \]
