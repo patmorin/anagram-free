@@ -96,8 +96,8 @@ These results are summarized in \tabref{results}.
 
 \begin{table}
   \begin{center}
-    \begin{tabular}{llll}
-      \textbf{Graphs} & \textbf{Bound} & \textbf{Reference} \\ \hline
+    \begin{tabular}{lll}
+      \textbf{Graph class} & \textbf{Bounds} & \textbf{Reference} \\ \hline
        Paths & $\pi_\alpha(G)= 4$ & \cite{keranen:abelian}  \\
        Graphs of treewidth $k$ & $\pi_\alpha(G)\in O(k\log n)$ & folklore  \\
        Graphs with an excluded minor of size $h$ & $\pi_\alpha(G)\in O(h^{3/2}n^{1/2})$ 
@@ -117,7 +117,7 @@ These results are summarized in \tabref{results}.
        Graphs of pathwidth 3 & $\pi_\alpha(G) \in \omega(1)$ 
          & \thmref{main} \\
        Subdivisions of graphs & $\pi_\alpha(G) \le 8$ 
-         & \cite{wilson.wood:anagram-free2} \\
+         & \cite{wilson.wood:anagram-free2}
     \end{tabular}
   \end{center}
   \caption{Bounds on anagram-free chromatic number.  Upper bounds apply to all graphs in the class. Lower bounds apply to some graphs in the class.}
@@ -159,7 +159,6 @@ Before proving \lemref{balanced} which is the most technical part of the paper,
 we show how it is used to prove \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
-Refer to \figref{graph}.
 Let $G$ be the graph with vertex set
 $V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
 \[
@@ -167,6 +166,7 @@ $V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
 \]
 We call the pairs $x_i$ and $y_i$ \emph{twins}.
 The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
+(See \figref{graph}.)
 
 \begin{figure}
   \begin{center}
@@ -264,10 +264,15 @@ vertices in the other half.
   \[
       \sum_{v\in V(T)}s(v)=\sum_{i\in\Sigma} \sum_{v\in S_i} s(v) = (h+\log_2 r)r2^{h}
   \]
-  and therefore, there exists some $i^*\in\Sigma$ such that
-  $\sum_{v\in S_{i^*}}s(v)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$. From
-  this point on we use the shorthands (for any $R\subseteq V(T)$) 
-  $s(R):=\sum_{v\in R}s(v)$ and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
+  and therefore, there exists some $i^*\in\Sigma$ such that $\sum_{v\in
+  S_{i^*}}s(v)\ge (h+\log_2 r)r2^h/c$.  Let $X=S_{i^*}$ and $w=w_{i^*}$.
+  From this point on the proof makes no further reference to the original
+  string $s$.  It is helpful to think of $T$ as having being ordered
+  so that, for each internal node $v$ with left and right children $x$
+  and $y$, respectively, $w(x)\ge w(y)$.  From this point on we use
+  the shorthands (for any $R\subseteq V(T)$) $s(R):=\sum_{v\in R}s(v)$
+  and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
+
 
   Summarizing, we have a complete binary tree $T$ of height $h+\log_2 r$ and
   a subset $X\subseteq V(T)$ with the following properties: 

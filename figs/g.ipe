@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180201214142" modified="D:20180201214142"/>
+<info created="D:20180201214142" modified="D:20180202083223"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -251,10 +251,114 @@ h
 <tiling name="falling" angle="-60" step="4" width="1"/>
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
+<ipestyle name="brew">
+<color name="aliceblue" value="0.941 0.973 1"/>
+<color name="brew1" value="0.552 0.827 0.78"/>
+<color name="brew2" value="1 1 0.701"/>
+<color name="brew3" value="0.745 0.729 0.854"/>
+<color name="brew4" value="0.984 0.501 0.447"/>
+<color name="brew5" value="0.501 0.694 0.827"/>
+<color name="brew6" value="0.992 0.705 0.384"/>
+<color name="brew7" value="0.701 0.87 0.411"/>
+<color name="brew8" value="0.988 0.803 0.898"/>
+</ipestyle>
+<ipestyle>
+<opacity name="10%" value="0.1"/>
+<opacity name="30%" value="0.3"/>
+<opacity name="50%" value="0.5"/>
+<opacity name="20%" value="0.2"/>
+<opacity name="40%" value="0.4"/>
+<opacity name="60%" value="0.6"/>
+<opacity name="70%" value="0.7"/>
+<opacity name="80%" value="0.8"/>
+<opacity name="90%" value="0.9"/>
+</ipestyle>
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 -141.917 -16.424" transformations="translations" pos="224 688" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" halign="center" valign="baseline" style="math">x_{1}</text>
+<group layer="alpha">
+<path matrix="1.026 0 0 0.9 80.0029 55.178" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 16.0029 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 144.003 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 208.003 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 272.003 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 336.003 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 400.003 55.178" stroke="darkgray" fill="brew7" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+</group>
+<group>
+<path matrix="1.026 0 0 0.9 48.0029 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 112.003 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 176.003 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 240.003 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 304.003 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+<path matrix="1.026 0 0 0.9 368.003 55.178" fill="brew6" opacity="50%">
+112 736
+48 736
+48 608
+112 608 u
+</path>
+</group>
+<text matrix="1 0 0 1 -141.917 -16.424" transformations="translations" pos="224 688" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" halign="center" valign="baseline" style="math">x_{1}</text>
 <path matrix="0.7 0 0 0.7 -74.7171 191.378" stroke="black">
 16 0 0 16 224 688 e
 </path>
@@ -627,96 +731,18 @@ h
 224 667.2 m
 224 676.8 l
 </path>
-<path matrix="1.026 0 0 0.9 16.0029 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 18.0829 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_1</text>
-<path matrix="1.026 0 0 0.9 48.0029 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 50.0829 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_2</text>
-<path matrix="1.026 0 0 0.9 80.0029 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 82.0829 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_3</text>
-<path matrix="1.026 0 0 0.9 112.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 114.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_4</text>
-<path matrix="1.026 0 0 0.9 144.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 146.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_5</text>
-<path matrix="1.026 0 0 0.9 176.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 178.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_6</text>
-<path matrix="1.026 0 0 0.9 208.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 210.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_7</text>
-<path matrix="1.026 0 0 0.9 240.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 242.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_8</text>
-<path matrix="1.026 0 0 0.9 272.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 274.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="12.026" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_9</text>
-<path matrix="1.026 0 0 0.9 304.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 306.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="15.997" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_{10}</text>
-<path matrix="1.026 0 0 0.9 336.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 338.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="15.997" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_{11}</text>
-<path matrix="1.026 0 0 0.9 368.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 370.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="15.997" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_{12}</text>
-<path matrix="1.026 0 0 0.9 400.003 55.178" stroke="darkgray">
-112 736
-48 736
-48 608
-112 608 u
-</path>
 <text matrix="1 0 0 1 402.083 -19.022" transformations="translations" pos="80 720" stroke="black" type="label" width="15.997" height="6.812" depth="1.49" halign="center" valign="baseline" style="math">B_{13}</text>
 <path matrix="0.7 0 0 0.7 53.2829 159.378" stroke="black">
 16 0 0 16 224 688 e
