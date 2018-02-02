@@ -170,7 +170,7 @@ The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\l
 
 \begin{figure}
   \begin{center}
-    \includegraphics{figs/g}
+    \includegraphics[width=\textwidth]{figs/g}
   \end{center}
   \caption{The graph $G$ in the proof of \thmref{main}.}
   \figlabel{graph}
@@ -191,7 +191,7 @@ connected components of $B$ are paths of length 1 and paths of length 2.
 
 \begin{figure}
   \begin{center}
-    \includegraphics{figs/graph}
+    \includegraphics[width=\textwidth]{figs/graph}
   \end{center}
   \caption{A balanced substring $t$ of $s$ produces a path in $G$ whose
     colour sequence is an anagram.}
@@ -235,7 +235,7 @@ vertices in the other half.
 
   \begin{figure}
     \begin{center}
-       \includegraphics[width=.98\textwidth]{figs/binary-tree-1}
+       \includegraphics[width=\textwidth]{figs/binary-tree-1}
     \end{center}
     \caption{Building a binary tree $T$ over the string $s$.}
     \figlabel{binary-tree}
@@ -253,10 +253,10 @@ vertices in the other half.
 
   \begin{figure}
     \begin{center}
-       \includegraphics[width=.98\textwidth]{figs/binary-tree-3} 
+       \includegraphics[width=\textwidth]{figs/binary-tree-3} 
     \end{center}
     \caption{The tree $T$ with the vector $(w_1(v),\ldots,w_5(v))$ for each
-     internal node $v$.  The unbalanced index that defines $\ell(v)$ is hilited for each node.}
+     internal node $v$.  The unbalanced index that defines $\ell(v)$ is highlited for each node.}
     \figlabel{binary-tree-2}
   \end{figure}
 
@@ -272,7 +272,6 @@ vertices in the other half.
   and $y$, respectively, $w(x)\ge w(y)$.  From this point on we use
   the shorthands (for any $R\subseteq V(T)$) $s(R):=\sum_{v\in R}s(v)$
   and $w(R):=\sum_{v\in R}s(v)w(v)/s(R)$.
-
 
   Summarizing, we have a complete binary tree $T$ of height $h+\log_2 r$ and
   a subset $X\subseteq V(T)$ with the following properties: 
@@ -313,11 +312,11 @@ vertices in the other half.
 
   It remains to establish \eqref{t}, which we do now.  For each node
   $v\in X$, let $R(v)$ denote the unique child of $v$ such that $w(R(v))
-  < 2w(v)/3$ (the existence of $R(v)$ follows from Properties~3 and
+  < 2w(v)/3$, i.e., the right child of $v$. (The existence of $R(v)$ follows from Properties~3 and
   5, above).  For a subset $A\subset X$, let $R(A)=\{R(x):x\in A\}$.
   Define $A_0\subseteq X_i$ and, for each $j\ge 1$, define $A_j$
   to be the subset of $X_{i+j}$ that are descendants of some node in
-  $R(A_{i-1})$.  Observe that $s(A_i) \le s(R(A_{i-1})) = s(A_{i-1})/2$,
+  $R(A_{i-1})$.  See \figref{bigtree}. Observe that $s(A_i) \le s(R(A_{i-1})) = s(A_{i-1})/2$,
   so 
    \begin{align*}
       s(X_{i+t}) 
@@ -327,6 +326,17 @@ vertices in the other half.
    \end{align*}
   So all that remains to establish \eqref{t} is to prove that 
   $s(A_t)\le (1/2)^{t+1}s(A_0)$.
+
+  \begin{figure}
+    \begin{center}
+       \includegraphics[width=\textwidth]{figs/bigtree}
+    \end{center}
+    \caption{The partitioning of $X$ into $X_1,X_2,\ldots,X_h$. Shaded
+    nodes are in $X$ and all nodes in $X_i$ are shaded with the same
+    colour.   Starting with $A_0=X_1$, the elements of $A_0,\ldots,A_h$
+    are highlighted.  The elements of $R(A_0),\ldots,R(A_h)$ are also highlighted.}
+    \figlabel{bigtree}
+  \end{figure}
 
   Now, the key inequality is 
   \begin{equation}
@@ -355,6 +365,9 @@ vertices in the other half.
   for $t = \ceil{\log_{3/2} r}$.
 \end{proof}
 
+\subsection{Remarks}
+
+By being more explicit in the proofs of \lemref{balanced} and \thmref{main}, can obtain the following quantitative bounds: (1)~Any string of length $n$ over an alphabet of size $o(\log\log n/\log\log\log n)$ contains a balanced substring.  (2)~There exist $n$-vertex pathwidth-3 graphs with $\pi_\alpha(G)\in \Omega(\sqrt{\log\log n/\log\log\log n})$.  We conjecture that the correct bound, for both questions, is $\Theta(\log n)$.
 
 \bibliographystyle{plain}
 \bibliography{anagram}

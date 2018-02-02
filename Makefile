@@ -8,5 +8,8 @@ anagram.pdf : figs anagram.tex anagram.bib $(ipefigs)
 figs: $(ipefigs)
 	(cd figs; make)
 
+install: anagram.pdf
+	scp anagram.pdf cglab.ca:public_html/publications/drafts/anagram/
+
 clean :
 	rm -f anagram.pdf figs/*.pdf
