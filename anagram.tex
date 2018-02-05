@@ -15,7 +15,7 @@ urlcolor=linkblue}
 
 \title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth Bounded}}
 
-\author{Vida Dujmović and Pat Morin}%
+\author{Paz Carmi, Vida Dujmović, and Pat Morin}%
 
 %\usepackage[mathlines]{lineno}
 %\linenumbers
@@ -168,13 +168,13 @@ even substring of length greater than 0.
 
 \begin{proof}[Proof of \thmref{main}]
 Let $G$ be the graph with vertex set
-$V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
+$V(G)=\{x_1,\ldots,x_{n},y_1,\ldots,y_{n}\}$ and with edge set
 \[
   E(G) = \{x_iy_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{x_iy_{i+1},x_{i+1}y_i\} \enspace .
 \]
 We call the pairs $x_i$ and $y_i$ \emph{twins}.
-The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
-(See \figref{graph}.)
+The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_1,\ldots,B_{n-1}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
+See \figref{graph}. Although not immediately obvious from \figref{graph}, $G$ is also planar---each of the diagonal edges $x_iy_{i+1}$ can be redrawn as a curve outside the cycle $x_1,\ldots,x_n,y_n,\ldots,y_1$ that does not cross any other edges.
 
 \begin{figure}
   \begin{center}
@@ -185,19 +185,6 @@ The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\l
 \end{figure}
 
 Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
-using $\alpha <\sqrt{2\log_2 n}$ colours. From this we derive a string
-$s=s_0\ldots,s_{n-1}$ where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.
-Observe that $s$ is a string over an alphabet $\Sigma$ of size
-$c=\binom{\alpha}{2}$.  By \lemref{parity} and our choice of $\alpha$,
-$s$ contains an even substring $s_i,\ldots,s_j$. Now, consider the path in $G$ of length $2n$ whose first half visits one of each twin pair so that, for each pair $\{a,b\}$, the first half of the path visits the vertex coloured $a$ exactly $n_{\{a,b\}}(s)/2$ times and visits the vertex coloured $b$ exactly $n_{\{a,b\}}(s)/2$ times. Now, the second half of the path visits one vertex in each 
-
-
-
-
- if $\binom{\alpha}{2} < \log_2(n+1)$.
-
-
-
 By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
 is sufficiently large.  Refer to \figref{b}. Since $t$
 is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
@@ -217,18 +204,17 @@ connected components of $B$ are paths of length 1 and paths of length 2.
 \end{figure}
 
 
-
 We will use $B$ to construct a path $P$ in $G$ whose colouring is an
 anagram.  For each length-1 component $s_is_j$ of $B$, the path $P$
-will include $v_i$, $w_i$, $v_j$ and $w_j$.  For each length-2 path
-$s_is_js_k$ the path $P$ include $v_i$, $v_j$, $w_j$, and the unique
-vertex $u\in\{v_k,w_k\}$ such that $\varphi(u)\neq \varphi(v_i)$.
+will include $x_i$, and the vertex $u\in\{x_j,y_j\}$ with $\varphi(z)=\varphi(x_i)$. For each length-2 path
+$s_is_js_k$ the path $P$ include $x_i$, $x_j$, $y_j$, and the 
+vertex $u\in\{x_k,y_k\}$ such that $\varphi(u)\neq \varphi(x_i)$.
 The ordering of vertices along the path $P$ is by increasing order
-of index, with ties (among $v_i$ and $w_i$) broken arbitrarily.
-The fact that $B$ has minimum degree 1 ensures that $P=x_1,\ldots,x_m$
+of index, with ties (among twins) broken arbitrarily.
+The fact that $B$ has minimum degree 1 ensures that $P=u_1,\ldots,u_m$
 is indeed a path in $G$.  The choice of vertices in $P$ ensures that
-$\varphi(x_1),\ldots,\varphi(x_m)$ is an anagram since length-1 components
-of $B$ create twins in the first half that cancel twins in the second
+$\varphi(u_1),\ldots,\varphi(u_m)$ is an anagram since length-1 components
+of $B$ create an vertex in the first half that cancels a vertex in the second
 half and length-2 components create twins in one half that cancel two
 vertices in the other half.
 \end{proof}
@@ -385,7 +371,11 @@ vertices in the other half.
 
 \subsection{Remarks}
 
-By being more explicit in the proofs of \lemref{balanced} and \thmref{main}, can obtain the following quantitative bounds: (1)~Any string of length $n$ over an alphabet of size $o(\log\log n/\log\log\log n)$ contains a balanced substring.  (2)~There exist $n$-vertex pathwidth-3 graphs with $\pi_\alpha(G)\in \Omega(\sqrt{\log\log n/\log\log\log n})$.  We conjecture that the correct bound, for both questions, is $\Theta(\log n)$.
+Our proofs of \lemref{balanced} and \thmref{main} give very weak lower
+bounds on $c$ and $\alpha$ as a function of $n=2^h$.  We conjecture
+that the correct bound, for both questions, is $c\in \Theta(\log n)$.
+The upper bound $c\in O(\log n)$ for both questions is easily obtained
+by divide-and-conquer.
 
 \bibliographystyle{plain}
 \bibliography{anagram}
