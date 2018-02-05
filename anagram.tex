@@ -13,7 +13,7 @@ urlcolor=linkblue}
 \setlength{\parskip}{1ex}
 \usepackage{wasysym}
 
-\title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth Bounded}%
+\title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth-Bounded}%
    \thanks{This work was partly funded by NSERC and the Ontario Ministry of
     Research, Innovation and Science}}
 
@@ -67,7 +67,7 @@ urlcolor=linkblue}
   The anagram-free chromatic number is a new graph parameter introduced
   independently Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:anagram-free}
   and Wilson and Wood \cite{wilson.wood:anagram-free}.  In this note, we show
-  that there are graphs of pathwidth 3 with arbitrarily large anagram-free
+  that there are planar graphs of pathwidth 3 with arbitrarily large anagram-free
   chromatic number.
 \end{abstract}
 %\end{titlepage}
@@ -226,14 +226,15 @@ the same.
 
   For each $j\in\{0,\ldots,r-1\}$, let $x_{j}=s_{2j+v_j}$ and
   let $y_j=s_{2j+1-v_j}$ so that $s_v=x_0,\ldots,x_{r-1}$ and
-  $s_{\overline{v}}=y_0,\ldots,y_{r-1}$.
-  Since \eqref{minimizer} is non-zero, There exists
-  some $j_1$ such that $n_{x_{j_1}}(s_v) > n_{x_{j_1}}(s_{\overline{v}})$.
-  This means that $n_{y_{j_1}}(s_v) \ge n_{y_{j_1}}(s_{\overline{v}})$,
-  otherwise flipping $v_{j_1}$ would decrease \eqref{minimizer} by two.
-  Furthermore, $y_{j_1}\neq x_{j_1}$ since, otherwise, we could remove
-  $s_{2j}$ and $s_{2j+1}$ from $s$ and obtain a smaller counterexample,
-  since the value of $v_j$ has no effect on \eqref{minimizer}.
+  $s_{\overline{v}}=y_0,\ldots,y_{r-1}$.  Since \eqref{minimizer}
+  is non-zero, there exists some $j_1$ such that $n_{x_{j_1}}(s_v) >
+  n_{x_{j_1}}(s_{\overline{v}})$.  This means that $n_{y_{j_1}}(s_v) \ge
+  n_{y_{j_1}}(s_{\overline{v}})$, otherwise flipping\footnote{Here and
+  throughout, flipping a binary variable $b$ means changing its value to $1-b$.}
+  $v_{j_1}$ would decrease \eqref{minimizer} by two.  Furthermore,
+  $y_{j_1}\neq x_{j_1}$ since, otherwise, we could remove $s_{2j}$
+  and $s_{2j+1}$ from $s$ and obtain a smaller counterexample, since
+  the value of $v_j$ has no effect on \eqref{minimizer}.
 
   Refer to \figref{swapping}.
   Let $a_1=x_{j_1}$ and for $k=2,3,4\ldots$, define $a_k = y_{j_{k-1}}$
@@ -251,6 +252,7 @@ the same.
        \includegraphics{figs/swapping}
     \end{center}
     \caption{The proof of \lemref{splitting}.}
+    \figlabel{swapping}
   \end{figure}
 
   Since $s$ is finite, there is some minimum value $k$ such that
