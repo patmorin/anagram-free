@@ -114,7 +114,7 @@ These results are summarized in \tabref{results}.
               & \cite{kamcev.luczak.ea:anagram-free} \\ 
        $4$-regular graphs & $\pi_\alpha(G)\in \Omega(\sqrt{n}{\log n})$ & \cite{kamcev.luczak.ea:anagram-free} \\
        $d$-regular graphs & $\pi_\alpha(G)\in \Omega(n)$ & \cite{kamcev.luczak.ea:anagram-free} \\
-       Graphs of pathwidth 3 & $\pi_\alpha(G) \in \omega(1)$ 
+       Planar graphs of pathwidth 3 & $\pi_\alpha(G) \in \Omega(\sqrt{\log n})$
          & \thmref{main} \\
        Subdivisions of graphs & $\pi_\alpha(G) \le 8$ 
          & \cite{wilson.wood:anagram-free2}
@@ -134,29 +134,37 @@ The purpose of this note is to show that the result of Wilson and
 Wood can not be strengthened to graphs of pathwidth $k$.
 
 \begin{thm}\thmlabel{main}
-  For every integer $\alpha$, there exists a planar graph of pathwidth
-  3 whose anagram-free chromatic number is greater than $\alpha$.
+  For every $n$, there exists a planar graph of pathwidth 3 whose anagram-free
+  chromatic number is $\Omega(\sqrt{\log n})$. 
 \end{thm}
 
 
 
 \section{Proof of \thmref{main}}
 
-Let $s$ be a string over some alphabet $\Sigma$.  For each $i\in\Sigma$,
-$n_i(s)$ denotes the number of occurences of $i$ in $s$.  If $s=pq$ is the
-concatenation of two equal length strings $p$ and $q$, then we say that
-$s$ is \emph{$i$-balanced} if $n_i(q)/2\le n_i(p)\le 2n_i(q)$ otherwise
-$s$ is \emph{$i$-unbalanced}.  If $s$ is $i$-balanced for each $i\in \Sigma$,
-then we say that $s$ is \emph{balanced}, otherwise $s$ is \emph{unbalanced}.
+Let $s\in\Sigma^*$ be a string over some alphabet $\Sigma$.  For each
+$i\in\Sigma$, $n_i(s)$ denotes the number of occurences of $i$
+in $s$.  We say that $s$ is \emph{even} if $n_i(s)$ is even for each
+$i\in\Sigma$. We say that $n_i(s)$ is \emph{stronly odd} if $s$ has no
+even substring of length greater than 0.
 
-\begin{lem}\lemlabel{balanced}
-  For any integer $c$ there exists an integer $n=n(c)$ such that any string
-  of length $n$ over an alphabet of size $c$ contains a balanced
-  substring.
+\begin{lem}
+  If $s\in\Sigma^n$ is strongly odd, then $|\Sigma|\ge\log_2(n+1)$.
 \end{lem}
 
-Before proving \lemref{balanced} which is the most technical part of the paper,
-we show how it is used to prove \thmref{main}.
+\begin{proof}
+  For any string $q\in\Sigma^*$, consider the \emph{parity vector}
+  $P(q)=\langle n_i(q)\bmod 2: i\in\Sigma \rangle$ and observe that
+  $q$ is even if and only if $P(q)=\langle 0,\ldots,0\rangle$.  Let
+  $s=s_1,\ldots,s_n$ be a strongly odd string and consider the sequence
+  of parity vectors: $P_1,\ldots,P_n$, where $P_i=P(s_1,\ldots,s_i)$.
+  Observe that every vector in this sequence is unique since,
+  if there were a $P_i = P_j$ with $i<j$, then this implies that
+  $P(s_{i+1},\ldots,s_j)=\langle 0,ldots,0\rangle$, contradicting the
+  assumption that $s$ is strongly odd.
+  Now each of $P_1,\ldots,P_n$ is a binary string of length $|\Sigma|$, they
+  are all unique and none of them is equal to $\langle 0,\ldots,0\rangle$. Therefore $|\Sigma|\ge \log_2(n+1)$.
+\end{proof}
 
 \begin{proof}[Proof of \thmref{main}]
 Let $G$ be the graph with vertex set
@@ -177,9 +185,19 @@ The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\l
 \end{figure}
 
 Now, consider some colouring $\varphi:V(G)\to\{1,\ldots,\alpha\}$ of $G$
-using $\alpha$ colours. From this we derive a string $s=s_0\ldots,s_{n-1}$
-where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.  Observe that $s$ is
-a string over an alphabet $\Sigma$ of size $c=\binom{\alpha}{2}$.
+using $\alpha <\sqrt{2\log_2 n}$ colours. From this we derive a string
+$s=s_0\ldots,s_{n-1}$ where $s_i=\{\varphi(v_i),\varphi(w_i)\}$.
+Observe that $s$ is a string over an alphabet $\Sigma$ of size
+$c=\binom{\alpha}{2}$.  By \lemref{parity} and our choice of $\alpha$,
+$s$ contains an even substring $s_i,\ldots,s_j$. Now, consider the path in $G$ of length $2n$ whose first half visits one of each twin pair so that, for each pair $\{a,b\}$, the first half of the path visits the vertex coloured $a$ exactly $n_{\{a,b\}}(s)/2$ times and visits the vertex coloured $b$ exactly $n_{\{a,b\}}(s)/2$ times. Now, the second half of the path visits one vertex in each 
+
+
+
+
+ if $\binom{\alpha}{2} < \log_2(n+1)$.
+
+
+
 By \lemref{balanced}, $s$ contains a balanced substring $t$ if $n$
 is sufficiently large.  Refer to \figref{b}. Since $t$
 is balanced, a na\"ive greedy algorithm allows us to construct a bipartite
