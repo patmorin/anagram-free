@@ -235,6 +235,7 @@ the same.
   $s_{2j}$ and $s_{2j+1}$ from $s$ and obtain a smaller counterexample,
   since the value of $v_j$ has no effect on \eqref{minimizer}.
 
+  Refer to \figref{swapping}.
   Let $a_1=x_{j_1}$ and for $k=2,3,4\ldots$, define $a_k = y_{j_{k-1}}$
   and define $j_k$ to be any index such that $x_{j_k}=a_k$.  Notice that
   that $n_{a_k}(s_v)\ge n_{a_{k}}(s_{\overline{v}})$ since, otherwise,
@@ -244,6 +245,13 @@ the same.
   does not change $n_a(s_v)$ for any $a\in\Sigma \setminus \{a_1,a_k\}$.
   This implies that $j_{k}$ is well-defined since
   $n_{a_k}(s_v)\ge n_{a_k}(s_{\overline{v}})\ge 1$.
+
+  \begin{figure}
+    \begin{center}
+       \includegraphics{figs/swapping}
+    \end{center}
+    \caption{The proof of \lemref{splitting}.}
+  \end{figure}
 
   Since $s$ is finite, there is some minimum value $k$ such that
   $a_{k}=a_{k'}$ for some $k' < k$.  This defines a sequence of indices
