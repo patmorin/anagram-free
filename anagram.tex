@@ -314,6 +314,78 @@ $\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y
 that is an anagram.
 \end{proof}
 
+\section{Generalization to Pathwidth $k$}
+
+\begin{lem}
+   Let $X_1,\ldots,X_n\subseteq\Sigma$ be a sequence of sets, each
+   of size $k>2$, with $|\Sigma|< \alpha k\log_2 n$. Then there exists indices
+   $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such that, for each
+   $k\in\{i,\ldots,j\}$,  $X_k'\subseteq X_k$ and $|X_k'|\ge 2$ and,
+   for each $a\in\Sigma$ the number of subsets in $X_i',\ldots,X_j'$
+   that contain $a$ is even.
+\end{lem}
+
+\begin{proof}
+   The proof is by induction on $n$.  The cases $n=1$ $n=2$ are vacuous, 
+   since we must have $|\Sigma|\ge k$ but also $|\Sigma|< \alpha k\log n$.
+
+   For a set $I\subset\Sigma$, let $N(I)=\{i\in\{1,\ldots,n\}: X_i\cap
+   I\neq\emptyset\}$.  Suppose that there exists some $I\subset\Sigma$ 
+   such that $|N(I)| < |I|/(k-2)$.  Then the elements of $N(I)$ partition
+   $\{1,\ldots,n\}$ into at most $|N(I)|+1$ intervals, one of which must
+   contain at least
+   \[
+       r = \frac{n-|N(I)|}{|N(I)|+1}
+       \ge \frac{n-|N(I)|}{2|N(I)|}
+        > \frac{(n-N(I))(k-2)}{2|I|}
+        > \frac{(n-|I|/(k-2))(k-2)}{2|I|}
+   \]
+   elements. Thus, there is sequence $X_1',\ldots,X_r'=X_{i'+1},\ldots,x_{i'+r}$  such that $|\bigcup_{i=1}^r X_i'| \le |\Sigma|-|I|$.
+   Therefore, we can apply induction on $X_1'\ldots,X_r'$ on the alphabet $\Sigma'=\Sigma\setminus I$ provided that
+   \[
+         |\Sigma'| < \alpha k\log r \enspace .
+   \]
+   This is indeed true, since
+   \begin{align*}
+      \alpha k\log r & > \alpha k\log\left(\frac{(n-|I|/(k-2))(k-2)}{2|I|}\right) \\
+             & = \alpha k\log(n-|I|/(k-2)) + \alpha k\log\left(\frac{k-2}{2|I|}\right) \\
+             & = \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
+             & > |\Sigma| \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
+   \end{align*}
+   
+
+   Define a bipartite graph $H$ with vertex set
+   $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set 
+   $E(H)=\{(a,i): i\in\{1,\ldots,n\}, a\in\Sigma\cap X_i\}$.  We will show that $E(H)$
+   contains a subset $E'$ such that each element $a\in\Sigma$ appears
+   exactly once in $E'$ and each element of $\{1,\ldots,n\}$ appears at
+   most $k-2$ times in $E'$.  Note that this is sufficient, since we can
+   
+
+  
+   
+   Su suppose there exists a
+   subset $I\subset\Sigma$, $|\bigcup_{i\in I} X_i| > (k-2)|I|$.
+   
+
+
+
+
+   Then use augmenting path argument.
+\end{proof}
+
+
+\begin{thm}
+  For every integer $n$ and and every integer $k>2$, there exists a
+  $kn$-vertex graph $G$ of pathwidth $2k-1$ with $\pi_\alpha(G)\ge
+  k\log_2 n$.
+\end{thm}
+
+\begin{proof}
+
+
+\end{proof}
+
 \section{Remarks}
 
 We have show that anagram-free chromatic number is not pathwidth-bounded,
