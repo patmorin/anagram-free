@@ -351,6 +351,8 @@ that is an anagram.
              & = \alpha k\log(n-|I|/(k-2)) + \alpha k\log\left(\frac{k-2}{2|I|}\right) \\
              & = \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
              & > |\Sigma| \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
+             & \ldots \\
+             & \ge |\Sigma| - |I| = |\Sigma'|
    \end{align*}
 
    Thus, we may assume that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
@@ -359,20 +361,39 @@ that is an anagram.
    set $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set $E(H)=\{(a,i):
    i\in\{1,\ldots,n\}, a\in\Sigma\cap X_i\}$.  We will show that $E(H)$
    contains a subset $E'$ such that each element $a\in\Sigma$ appears
-   exactly once in $E'$ and each element of $\{1,\ldots,n\}$ appears at
-   most $k-2$ times in $E'$.  Note that this is sufficient, since we can
+   exactly once in $E'$ and each element of $\{1,\ldots,n\}$ appears
+   at most $k-2$ times in $E'$.  That is, $E'$ defines a mapping
+   $f:\Sigma\to\{1,\ldots,n\}$ which is at most $(k-2)$-to-one.
+   The existence of $f$ establishes the lemma since we can start
+   with $X_i'=X_i$ for all $i\in\{1,\ldots,n\}$ and then, for each
+   $a\in\Sigma$ that appears an odd number of times, we can remove $a$
+   from the set $X_{f(a)}'$.  When this process is complete each $X_i'$
+   has size at least 2 and each $a\in\Sigma$ occurs in an even number
+   of the sets $X_1',\ldots,X_n'$.
 
-
-  
-   
-   Su suppose there exists a
-   subset $I\subset\Sigma$, $|\bigcup_{i\in I} X_i| > (k-2)|I|$.
-   
-
-
-
-
-   Then use augmenting path argument.
+   All that remains is to prove the existence of the edge set $E'$, which
+   we do with an augmenting paths argument.  
+   For a set $E'\subset E(H)$, and each $i\in\{1,\ldots,n\}$ let $d_{E'}(i)$
+   denote the number of edges in $E'$ incident to $i$, and define
+   \[
+      \Phi(E') = \sum_{i=1}^n\max\{0, d_{E'}(i)-(k-2)\} \enspace .
+   \]
+   Now, choose $E'=\{(a,i_a):a\in\Sigma\}$ that maximizes $\Phi(E')$ and
+   let $f:\Sigma\to\{1,\ldots,n\}$ be the corresponding mapping.
+   Suppose, by way of contradiction, that $\Phi(E') > 0$.  Thus, there exists
+   some index $i_0\in\{1,\ldots,n\}$ such that $\Sigma_0=f^{-1}(i)$ has size at least $k-1$.  Therefore, 
+   \[
+       |N(\Sigma_0)| \ge \left\lceil\frac{|\Sigma_0|}{k-2}\right\rceil \ge 2 \enspace .
+   \]
+   In particular, $N(\Sigma_0)$ contains some $i_1\in\{1,\ldots,n\}$
+   with $i_1\neq i_0$. Now, $i_1$ has a neighbour $a_1\in\Sigma_0$
+   in common with $i_0$.  Observe that $|f^{-1}(i_1)| \ge k-2$ since,
+   otherwise, we could replace the edge $(a_1,i_0)$ with $(a_1,i_1)$
+   in $E'$ and this would decrease $\Phi(E')$.  Thus, 
+   \[
+      \Sigma_1 = f^{-1}(i_0)\cup f^{-1}(i_1)
+   \]
+   has size at least $k-2+k-1$ which implies that $|N(\Sigma_1)| \ge 3$ so there 
 \end{proof}
 
 
