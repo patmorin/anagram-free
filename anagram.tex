@@ -132,8 +132,10 @@ chromatic number.  These results, and some others, are summarized in
        Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
          & \cite[Proposition~2.4]{kamcev.luczak.ea:anagram-free} \\
            & & \cite[Theorem~1]{wilson.wood:anagram-free} \\
-       Planar graphs of pathwidth 3 & $\pi_\alpha(G) \in \Omega(\log n)$
-         & \thmref{main} 
+       Planar graphs of pathwidth $3$ & $\pi_\alpha(G) \in \Omega(\log n)$
+         & \thmref{main} \\
+       Graphs of pathwidth $k>3$ & $\pi_\alpha(G) \in \Omega(k\log n)$
+         & \thmref{main-2} 
     \end{tabular}
   \end{center}
   \caption{Bounds on anagram-free chromatic number.  Upper bounds apply
@@ -155,13 +157,22 @@ for every tree, $T$.
 \end{enumerate}
 The purpose of this note, however, is to show that the result of Wilson
 and Wood can not be strengthened even to planar graphs of pathwidth 3
-and maximum degree 5.
+and maximum degree 5. (Here and throughout, $\log x=\log_2 x$ denotes the binary logarithm of $x$.)
 
 \begin{thm}\thmlabel{main}
   For every $n\in N$, there exists a $2n$-vertex planar graph of
   pathwidth 3 and maximum degree 5 whose anagram-free chromatic number
-  is at least $\log_2(n+1)$.
+  is at least $\log(n+1)$.
 \end{thm}
+
+
+\begin{thm}\thmlabel{main-2}
+  For every integer $k\ge 3$ any $\beta < (k-2)/k$ and every sufficiently
+  large $n$, there exists a $kn$-vertex graph $G$ of pathwidth $2k-1$,
+  maximum degree $3k-1$ with $\pi_\alpha(G)\ge \beta k\log n$.
+\end{thm}
+
+These two results show that the straight-forward divide-and-conquer algorithm using separators gives asymptotically worst-case optimal colourings for graphs of pathwidth $k$ and graphs of treewidth $k$.
 
 \section{Proof of \thmref{main}}
 
@@ -172,7 +183,7 @@ $a\in\Sigma$.  The following lemma says that strings with no even
 substrings must use an alphabet of at least logarithmic size.
 
 \begin{lem}\lemlabel{parity}
-  If $s=s_0,\ldots,s_{2n-1}\in\Sigma^{2n}$ and $|\Sigma|< \log_2(n+1)$,
+  If $s=s_0,\ldots,s_{2n-1}\in\Sigma^{2n}$ and $|\Sigma|< \log(n+1)$,
   then $s$ contains a non-empty even substring $s_{2i},\ldots,s_{2j-1}$
   for some $0\le i < j\le n$.
 \end{lem}
@@ -191,7 +202,7 @@ substrings must use an alphabet of at least logarithmic size.
 
   Now consider the parity vectors $P(t_0),P(t_1),\ldots,P(t_n)$.
   Each of these $n+1$ vectors is a binary string of length
-  $|\Sigma| < \log_2(n+1)$ therefore, there must exist two indices
+  $|\Sigma| < \log(n+1)$ therefore, there must exist two indices
   $i,j\in\{0,\ldots,n\}$ with $i<j$ such that $P(t_i)=P(t_j)$.  However,
   \[
       P(t_j) = P(t_i) \oplus P(s_{2i},\ldots,s_{2j-1}) 
@@ -300,7 +311,7 @@ See \figref{graph}. Although not immediately obvious from \figref{graph}, $G$ is
 
 
 Now, consider some colouring $\varphi:V(G)\to\Sigma$
-with $|\Sigma| < \log_2(n+1)$.  Applying \lemref{parity} to
+with $|\Sigma| < \log(n+1)$.  Applying \lemref{parity} to
 the string 
 $s=\varphi(x_1),\varphi(y_1),\ldots,\varphi(x_n),\varphi(y_n)$ we
 conclude that there is some $i < j$ such that 
@@ -316,18 +327,20 @@ that is an anagram.
 
 \section{Proof of \thmref{main-2}}
 
-\begin{lem}
-   Let $X_1,\ldots,X_n\subseteq\Sigma$ be a sequence of sets, each
-   of size $k>2$, with $|\Sigma|< \alpha k\log_2 n$. Then there exists indices
-   $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such that, for each
-   $k\in\{i,\ldots,j\}$,  $X_k'\subseteq X_k$ and $|X_k'|\ge 2$ and,
-   for each $a\in\Sigma$ the number of subsets in $X_i',\ldots,X_j'$
-   that contain $a$ is even.
+\begin{lem}\lemlabel{marriage}
+   For every integer $k\ge 3$ and every $\beta < (k-2)/k$, there
+   exists an integer $n_0$ such that, for every sequence of sets
+   $X_1,\ldots,X_n\subseteq\Sigma$, each of size $k>2$, with $|\Sigma|\le
+   \beta k\log n$ and $n\ge n_0$, there
+   exists indices $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such
+   that, for each $\ell\in\{i,\ldots,j\}$,  $X_\ell'\subseteq X_\ell$,
+   $|X_\ell'|\ge 2$ and, for each $a\in\Sigma$ the number of subsets in
+   $X_i',\ldots,X_j'$ that contain $a$ is even.
 \end{lem}
 
 \begin{proof}
-   The proof is by induction on $n$.  The cases $n=1$ $n=2$ are vacuous, 
-   since we must have $|\Sigma|\ge k$ but also $|\Sigma|< \alpha k\log n$.
+   The proof is by induction on $n$.  The cases $n=1$ and $n=2$ are vacuous, 
+   since we must have $|\Sigma|\ge k$ but also $|\Sigma|\le \beta k\log n < k$.
 
    For a set $I\subset\Sigma$, let $N(I)=\{i\in\{1,\ldots,n\}: X_i\cap
    I\neq\emptyset\}$.  Suppose that there exists some $I\subset\Sigma$ 
@@ -335,77 +348,154 @@ that is an anagram.
    $\{1,\ldots,n\}$ into at most $|N(I)|+1$ intervals, one of which must
    contain at least
    \[
-       r = \frac{n-|N(I)|}{|N(I)|+1}
-       \ge \frac{n-|N(I)|}{2|N(I)|}
-        > \frac{(n-N(I))(k-2)}{2|I|}
-        > \frac{(n-|I|/(k-2))(k-2)}{2|I|}
+       r \ge \frac{n-N(I)}{N(I)+1} > \frac{n}{N(I)+1}-1 
    \]
-   elements. Thus, there is sequence $X_1',\ldots,X_r'=X_{i'+1},\ldots,x_{i'+r}$  such that $|\bigcup_{i=1}^r X_i'| \le |\Sigma|-|I|$.
-   Therefore, we can apply induction on $X_1'\ldots,X_r'$ on the alphabet $\Sigma'=\Sigma\setminus I$ provided that
+   elements. Thus, there is a sequence
+   $X_1',\ldots,X_r'=X_{i'+1},\ldots,X_{i'+r}$  such that
+   $\bigcup_{i=1}^r X_i' \subseteq \Sigma\setminus I$.  Therefore, we can apply
+   induction on $X_1'\ldots,X_r'$ on the alphabet $\Sigma'=\Sigma\setminus
+   I$ provided that
    \[
-         |\Sigma'| < \alpha k\log r \enspace .
+         |\Sigma'| = |\Sigma|-|I| < \beta k\log r \enspace .
    \]
    This is indeed true, since
    \begin{align*}
-      \alpha k\log r & > \alpha k\log\left(\frac{(n-|I|/(k-2))(k-2)}{2|I|}\right) \\
-             & = \alpha k\log(n-|I|/(k-2)) + \alpha k\log\left(\frac{k-2}{2|I|}\right) \\
-             & = \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
-             & > |\Sigma| \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
-             & \ldots \\
-             & \ge |\Sigma| - |I| = |\Sigma'|
+      \beta k\log r 
+             & > \beta k\log\left(\frac{n}{|N(I)|+1}-1\right) \\
+             & = \beta k\log\left(\frac{n}{|N(I)|+1}\right) 
+               - O\left(\frac{\log n}{n}\right)  
+               & \text{(since $|N(I)|=O(\log n)$)} \\
+             & = \beta k\left(\log n - \log (|N(I)|+1)\right)
+                  - O\left(\frac{\log n}{n}\right)    \\
+             & > |\Sigma| - \beta k\log (|N(I)|+1) 
+                  - O\left(\frac{\log n}{n}\right) \\
+             & \ge |\Sigma| - \beta k|N(I)| - O\left(\frac{\log n}{n}\right) 
+                & \text{(since $\log(x+1) \le x$ for all $x\ge 1$)} \\
+             & > |\Sigma| - \frac{\beta k|I|}{k-2}- O\left(\frac{\log n}{n}\right) 
+                & \text{(since $|I|>(k-2)|N(I)|$)}  \\
+             & > |\Sigma| - |I| 
+                & \text{(since $\beta < (k-2)/k$ and $n\ge n_0$).} 
    \end{align*}
 
    Thus, we may assume that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
    |I|/(k-2)$.  We will show that in this case, the lemma is true
    with $i=1$ and $j=n$.  Define a bipartite graph $H$ with vertex
    set $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set $E(H)=\{(a,i):
-   i\in\{1,\ldots,n\}, a\in\Sigma\cap X_i\}$.  We will show that $E(H)$
-   contains a subset $E'$ such that each element $a\in\Sigma$ appears
-   exactly once in $E'$ and each element of $\{1,\ldots,n\}$ appears
-   at most $k-2$ times in $E'$.  That is, $E'$ defines a mapping
-   $f:\Sigma\to\{1,\ldots,n\}$ which is at most $(k-2)$-to-one.
-   The existence of $f$ establishes the lemma since we can start
-   with $X_i'=X_i$ for all $i\in\{1,\ldots,n\}$ and then, for each
+   i\in\{1,\ldots,n\}, a\in X_i\}$.  We will show that $E(H)$ contains a
+   subset $E'$ such that each element $a\in\Sigma$ appears exactly once in
+   $E'$ and each element of $\{1,\ldots,n\}$ appears at most $k-2$ times
+   in $E'$.  That is, $E'$ defines a mapping $f:\Sigma\to\{1,\ldots,n\}$
+   in which, for any $i\in\{1,\ldots,n\}$, $|f^{-1}(i)|\le k-2$.
+
+   The existence of the mapping $f$ establishes the lemma since we can
+   start with $X_i'=X_i$ for all $i\in\{1,\ldots,n\}$ and then, for each
    $a\in\Sigma$ that appears an odd number of times, we can remove $a$
    from the set $X_{f(a)}'$.  When this process is complete each $X_i'$
    has size at least 2 and each $a\in\Sigma$ occurs in an even number
    of the sets $X_1',\ldots,X_n'$.
 
    All that remains is to prove the existence of the edge set $E'$, which
-   we do with an augmenting paths argument.  
-   For a set $E'\subset E(H)$, and each $i\in\{1,\ldots,n\}$ let $d_{E'}(i)$
-   denote the number of edges in $E'$ incident to $i$, and define
+   we do using an augmenting paths argument like that used, for example,
+   to prove Hall's Marriage Theorem.  
+   Consider an edge set $E'\subseteq E(H)$ that contains exactly 
+   one edge incident to each $a\in\Sigma$ and let $f:\Sigma\to\{1,\ldots,n\}$ be the corresponding mapping.  Then we define
    \[
-      \Phi(E') = \sum_{i=1}^n\max\{0, d_{E'}(i)-(k-2)\} \enspace .
+      \Phi(E') = \sum_{i=1}^n\max\{0, |f^{-1}(i)|-(k-2)\} \enspace .
    \]
-   Now, choose $E'=\{(a,i_a):a\in\Sigma\}$ that maximizes $\Phi(E')$ and
-   let $f:\Sigma\to\{1,\ldots,n\}$ be the corresponding mapping.
-   Suppose, by way of contradiction, that $\Phi(E') > 0$.  Thus, there exists
-   some index $i_0\in\{1,\ldots,n\}$ such that $\Sigma_0=f^{-1}(i)$ has size at least $k-1$.  Therefore, 
+   Note that the set $E'$ we hope to find has $\Phi(E')=0$.  Now, select
+   some $E'$ that minimizes $\Phi(E')$.  If $\Phi(E')=0$ then we are done,
+   so assume by way of contradiction, that $\Phi(E') > 0$.  Thus, there
+   exists some index $i_0\in\{1,\ldots,n\}$ such that $|f^{-1}(i_0)|\ge k-1$
+   and therefore the set $\Sigma_0=f^{-1}(i_0)$ has size at least $k-1$.
+   Therefore, 
    \[
-       |N(\Sigma_0)| \ge \left\lceil\frac{|\Sigma_0|}{k-2}\right\rceil \ge 2 \enspace .
+       |N(\Sigma_0)| \ge \left\lceil\frac{|\Sigma_0|}{k-2}\right\rceil \ge 
+\left\lceil\frac{k-1}{k-2}\right\rceil = 2 \enspace .
    \]
-   In particular, $N(\Sigma_0)$ contains some $i_1\in\{1,\ldots,n\}$
-   with $i_1\neq i_0$. Now, $i_1$ has a neighbour $a_1\in\Sigma_0$
-   in common with $i_0$.  Observe that $|f^{-1}(i_1)| \ge k-2$ since,
-   otherwise, we could replace the edge $(a_1,i_0)$ with $(a_1,i_1)$
-   in $E'$ and this would decrease $\Phi(E')$.  Thus, 
+   In particular, $N(\Sigma_0)\setminus\{i_0\}$ is non-empty.
+   Let $I_0=\{i_0\}$ and observe that each $i_1\in N(\Sigma_0)\setminus I_0$
+   must have $|f^{-1}(i_1)|\ge k-2$ since, otherwise we could replace
+   the edge $(a_1,i_0)$ with $(a_1,i_1)$ in $E'$ and this would decrease
+   $\Phi(E')$.  Let $I_1=N(\Sigma_0)$ and let $\Sigma_1=\bigcup_{i_1\in I_i} f^{-1}(i_1)$.  We have just argued that 
    \[
-      \Sigma_1 = f^{-1}(i_0)\cup f^{-1}(i_1)
+        |\Sigma_1|\ge |I_1|(k-2)+1
    \]
-   has size at least $k-2+k-1$ which implies that $|N(\Sigma_1)| \ge 3$ so there 
+   and therefore, 
+   \[
+          |N(\Sigma_1)| \ge \left\lceil\frac{|\Sigma_1|}{k-2}\right\rceil
+            \ge \left\lceil\frac{|I_1|(k-2)+1}{k-2}\right\rceil
+            \ge |I_1|+1 \enspace .
+   \]
+   But now we can continue this argument, defining $I_j=N(\Sigma_{j-1})$
+   and $\Sigma_j=\bigcup_{i_j\in I_j} f^{-1}(i_j)$.  Again, each $i_j\in
+   I_j\setminus \bigcup_{\ell=1}^{j-1} I_\ell$ must have $|f^{-1}(i_j)|\ge
+   k-2$, otherwise we can find a path $i_0,a_0,i_1,a_1,\ldots,a_{j-1}i_j$
+   and replace, in $E'$,
+   the edges $i_0a_0,\ldots,i_{j-1}a_{j-1}$ with $a_0i_1,a_1i_2,\ldots,a_{j-1}i_j$ which would decrease $\Phi(E')$.
+   In this way, we obtain an infinite
+   sequence of subsets $I_0,\ldots,I_\infty\subseteq \{1,\ldots,n\}$
+   such that $|I_{j}|>|I_{j-1}|$.  This is clearly a contradiction,
+   since each $|I_j|$ is an an integer in $\{1,\ldots,n\}$.
 \end{proof}
 
 
-\begin{thm}
-  For every integer $n$ and and every integer $k>2$, there exists a
-  $kn$-vertex graph $G$ of pathwidth $2k-1$ with $\pi_\alpha(G)\ge
-  k\log_2 n$.
-\end{thm}
 
-\begin{proof}
+\begin{proof}[Proof of \thmref{main-2}]
+The pathwidth $2k-1$ graph, $G$, used in this proof is a natural
+generalization of the pathwidth $3$ graph used in the proof of
+\thmref{main}.  The $kn$ vertices of $G$ are partitioned in subsets
+$V_1,\ldots,V_n$, each size of size $k$.  For each $i\in\{1,\ldots,n\}$,
+$V_i$ is a clique and, for each $i\in\{1,\ldots,n-1\}$, every
+vertex in $V_i$ is adjacent to every vertex in $V_{i+1}$.  That this
+graph has pathwidth $2k-1$ can be seen from the path decomposition
+$B_1,\ldots,B_{n-2}$ where each $B_i=\{V_i\cup V_{i+1}\}$.
 
+Suppose we have some colouring $\varphi:V(G)\to\Sigma$, with
+$|\Sigma|<\beta k\log n$.  Define the sets $X_1,\ldots,X_n$ where
+$X_i=\{\varphi(v): v\in V_i\}$.  By \lemref{marriage}, we can find indices
+$i\in\{0,\ldots,n-1\}$ and $r>0$ and subsets $V_1',\ldots,V_{r}'$ such
+that, for each $\ell\in\{1,\ldots,r\}$,  $V_\ell'\subseteq V_{i+\ell}$, $|V_\ell'|\ge 2$,
+and such that each colour $a\in\Sigma$ appears in an even number of
+$V_1',\ldots,V_r'$.
 
+Next, label the vertices in $V_1',\ldots,V_r'$ red and blue as
+follows.  If $|V_i'|$ is even, then label half its vertices red and
+half its vertices blue, arbitrarily.  Let $Q_1,\ldots,Q_t$ denote the
+subsequence of $V_1',\ldots,V_r'$ consisting of only sets of odd size
+(so the vertices in $Q_1,\ldots,Q_t$ are not labelled red or blue yet).
+Then, for odd values of $i$, label $\ceil{|Q_i|/2}$ vertices
+of $Q_i$ red and the remaining blue.  For even values of $i$ label
+$\floor{|Q_i|/2}$ vertices of $Q_i$ red and the remaining blue.
+Observe that, since $\sum_{i=1}^r|V_i'|$ is even, $t$ is also even,
+so exactly half the vertices in $\bigcup_{i=1}^r V_i'$ are red and half
+are blue.
+
+Now, consider the following perfect bichromatic matching of
+$\bigcup_{i=1}^r V_i'$: In every set $V_i'$ of even size we match each
+red vertex in $V_i'$ with a blue vertex in $V_i'$.  In each odd size set
+$Q_i$, we match $\lfloor|Q_i|/2\rfloor$ red vertices with blue vertices
+leaving one vertex $v_i$ unmatched.  This leaves $t$ unmatched vertices
+$v_1,\ldots,v_t$ and these vertices alternate colour between red and
+blue. To complete the matching, we match $v_{2i}$ with $v_{2i-1}$ for
+each $i\in\{1,\ldots,t/2\}$.
+
+Now, treat this matching as a long string $s=x_1,y_1,\ldots,x_q,y_q$
+where each $x_i=\varphi(v_i)$, each $y_i=\varphi(w_i)$, and each
+$(v_i,w_i)$ is a matched pair of vertices.  Now, applying
+\lemref{splitting} to $s$, we obtain two sets of vertices
+$V=\{v_1',\ldots,v_q'\}$ and $W=\{w_1',\ldots,w_q'\}$ such that, 
+for each $a\in\Sigma$,
+$n_a(\varphi(v_1),\ldots,\varphi(v_q))=n_a(\varphi(w_1),\ldots,\varphi(w_q))$.
+Thus, all that remains is to show that $G$ contains a path $P$ whose first
+half is some permutation of $V$ and whose second half
+is some permutation of $W$.  But this is obvious, because,
+for each $i\in\{1,\ldots,r\}$, $V_i'$ contains at least one vertex of $V$
+and at least one vertex of $W$.  Thus, the path $P$ first visits all the
+vertices of $V\cap V_1'$ followed by all the vertices of $V\cap V_2'$,
+and so on until visiting all the vertices in $V\cap V_r'$. Next, the path
+returns and visits all the vertices in $W\cap V_r'$, $W\cap V_{r-1}'$,
+and so on back to $W\cap V_1'$.  The existence of the path $P$ shows
+that no colouring of $G$ with $\beta k\log n$ colours is anagram-free, so $\pi_\alpha(G) > \beta k\log n$.
 \end{proof}
 
 \section{Remarks}
