@@ -314,7 +314,7 @@ $\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y
 that is an anagram.
 \end{proof}
 
-\section{Generalization to Pathwidth $k$}
+\section{Proof of \thmref{main-2}}
 
 \begin{lem}
    Let $X_1,\ldots,X_n\subseteq\Sigma$ be a sequence of sets, each
@@ -352,15 +352,16 @@ that is an anagram.
              & = \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
              & > |\Sigma| \alpha k\log n  + \alpha k\log\left(\frac{k-2}{2|I|}\right) - O_n\left(\frac{|I|}{n}\right) \\
    \end{align*}
-   
 
-   Define a bipartite graph $H$ with vertex set
-   $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set 
-   $E(H)=\{(a,i): i\in\{1,\ldots,n\}, a\in\Sigma\cap X_i\}$.  We will show that $E(H)$
+   Thus, we may assume that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
+   |I|/(k-2)$.  We will show that in this case, the lemma is true
+   with $i=1$ and $j=n$.  Define a bipartite graph $H$ with vertex
+   set $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set $E(H)=\{(a,i):
+   i\in\{1,\ldots,n\}, a\in\Sigma\cap X_i\}$.  We will show that $E(H)$
    contains a subset $E'$ such that each element $a\in\Sigma$ appears
    exactly once in $E'$ and each element of $\{1,\ldots,n\}$ appears at
    most $k-2$ times in $E'$.  Note that this is sufficient, since we can
-   
+
 
   
    
