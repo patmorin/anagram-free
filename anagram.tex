@@ -145,15 +145,16 @@ chromatic number.  These results, and some others, are summarized in
 \end{table}
 
 All of the examples of graphs having large anagram-free chromatic
-number are graphs with large pathwidth \cite{robertson.seymour:graph}.  Therefore, an obvious question
-is whether anagram-free chromatic number is pathwidth-bounded, i.e.,
-can $\pi_\alpha(G)$ be upper bounded by some function of the pathwidth
-$\pw(G)$ of $G$?  Such a result seems plausible, for two reasons:
+number are graphs with large pathwidth \cite{robertson.seymour:graph}.
+Therefore, an obvious question is whether anagram-free chromatic number
+is pathwidth-bounded, i.e., can $\pi_\alpha(G)$ be upper bounded by some
+function of the pathwidth $\pw(G)$ of $G$?  Such a result seems plausible,
+for two reasons:
 \begin{enumerate}
-\item pathwidth is a measure of how path-like a graph
-is and Ker\"anen showed that paths have anagram-free 4-colourings; and
-\item the result of Wilson and Wood \cite{wilson.wood:anagram-free} shows that $\pi_\alpha(T)\le 4\pw(T)+1$
-for every tree, $T$. 
+  \item pathwidth is a measure of how path-like a graph is and Ker\"anen
+     showed that paths have anagram-free 4-colourings; and
+  \item the result of Wilson and Wood \cite{wilson.wood:anagram-free}
+     shows that $\pi_\alpha(T)\le 4\pw(T)+1$ for every tree, $T$.
 \end{enumerate}
 The purpose of this note, however, is to show that the result of Wilson
 and Wood can not be strengthened even to planar graphs of pathwidth 3
@@ -172,7 +173,9 @@ and maximum degree 5. (Here and throughout, $\log x=\log_2 x$ denotes the binary
   maximum degree $3k-1$ with $\pi_\alpha(G)\ge \beta k\log n$.
 \end{thm}
 
-These two results show that the straight-forward divide-and-conquer algorithm using separators gives asymptotically worst-case optimal colourings for graphs of pathwidth $k$ and graphs of treewidth $k$.
+These two results show that the straight-forward divide-and-conquer
+algorithm using separators gives asymptotically worst-case optimal
+colourings for graphs of pathwidth $k$ and graphs of treewidth $k$.
 
 \section{Proof of \thmref{main}}
 
@@ -284,45 +287,47 @@ the same.
 \end{proof}
 
 \begin{proof}[Proof of \thmref{main}]
-Let $G$ be the graph with vertex set
-$V(G)=\{x_1,\ldots,x_{n},y_1,\ldots,y_{n}\}$ and with edge set
-\[
-  E(G) = \{x_iy_i : i\in\{0,\ldots,n-1\}\} \cup \bigcup_{i=0}^{n-2} \{x_iy_{i+1},x_{i+1}y_i\} \enspace .
-\]
-The graph $G$ has pathwidth 3 as can be seen from the path decomposition $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.
-See \figref{graph}. Although not immediately obvious from \figref{graph}, $G$ is also planar---see \figref{planar}.
-
-\begin{figure}
-  \begin{center}
-    \includegraphics{figs/g}
-  \end{center}
-  \caption{The graph $G$ in the proof of \thmref{main}.}
-  \figlabel{graph}
-\end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=\textwidth]{figs/planar}
-  \end{center}
-  \caption{The graph $G$ in the proof of \thmref{main} is planar
-   and is even a 2-page graph.}
-  \figlabel{planar}
-\end{figure}
-
-
-Now, consider some colouring $\varphi:V(G)\to\Sigma$
-with $|\Sigma| < \log(n+1)$.  Applying \lemref{parity} to
-the string 
-$s=\varphi(x_1),\varphi(y_1),\ldots,\varphi(x_n),\varphi(y_n)$ we
-conclude that there is some $i < j$ such that 
-$\varphi(x_{i}),\varphi(y_i),\ldots,\varphi(x_j),\varphi(y_j)$
-is even.  By \lemref{splitting} and the
-symmetry between each $x_i$ and $y_i$ we can assume that
-$n_a(\varphi_(x_i),\ldots,\varphi(x_j))=n_a(\varphi(y_i),\ldots,\varphi(y_j))$
-for each $a\in\Sigma$.  But then the path
-$x_i,\ldots,x_j,y_j,y_{j-1},\ldots,y_i$ has a colour sequence
-$\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y_i)$
-that is an anagram.
+  Let $G$ be the graph with vertex set
+  $V(G)=\{x_1,\ldots,x_{n},y_1,\ldots,y_{n}\}$ and with edge set
+  \[
+    E(G) = \{x_iy_i : i\in\{0,\ldots,n-1\}\} 
+              \cup \bigcup_{i=0}^{n-2} \{x_iy_{i+1},x_{i+1}y_i\} \enspace .
+  \]
+  The graph $G$ has pathwidth 3 as can be seen from the path decomposition
+  $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.  See
+  \figref{graph}. Although not immediately obvious from \figref{graph},
+  $G$ is also planar---see \figref{planar}.
+  
+  \begin{figure}
+    \begin{center}
+      \includegraphics{figs/g}
+    \end{center}
+    \caption{The graph $G$ in the proof of \thmref{main}.}
+    \figlabel{graph}
+  \end{figure}
+  
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=\textwidth]{figs/planar}
+    \end{center}
+    \caption{The graph $G$ in the proof of \thmref{main} is planar
+     and is even a 2-page graph.}
+    \figlabel{planar}
+  \end{figure}
+  
+  Now, consider some colouring $\varphi:V(G)\to\Sigma$
+  with $|\Sigma| < \log(n+1)$.  Applying \lemref{parity} to
+  the string 
+  $s=\varphi(x_1),\varphi(y_1),\ldots,\varphi(x_n),\varphi(y_n)$ we
+  conclude that there is some $i < j$ such that 
+  $\varphi(x_{i}),\varphi(y_i),\ldots,\varphi(x_j),\varphi(y_j)$
+  is even.  By \lemref{splitting} and the
+  symmetry between each $x_i$ and $y_i$ we can assume that
+  $n_a(\varphi_(x_i),\ldots,\varphi(x_j))=n_a(\varphi(y_i),\ldots,\varphi(y_j))$
+  for each $a\in\Sigma$.  But then the path
+  $x_i,\ldots,x_j,y_j,y_{j-1},\ldots,y_i$ has a colour sequence
+  $\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y_i)$
+  that is an anagram.
 \end{proof}
 
 \section{Proof of \thmref{main-2}}
