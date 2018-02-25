@@ -69,7 +69,10 @@ urlcolor=linkblue}
   \cite{kamcev.luczak.ea:anagram-free} and Wilson and Wood
   \cite{wilson.wood:anagram-free}.  In this note, we show that there
   are planar graphs of pathwidth 3 with arbitrarily large anagram-free
-  chromatic number.
+  chromatic number.  More specifically, we describe $2n$-vertex planar
+  graphs of pathwidth 3 with anagram-free chromatic number $\Omega(\log n)$.
+  We also describe $kn$ vertex graphs with pathwidth $2k-1$ having
+  anagram-free chromatic number at least $\Omega(k\log n)$.
 \end{abstract}
 %\end{titlepage}
 %
@@ -168,9 +171,9 @@ and maximum degree 5. (Here and throughout, $\log x=\log_2 x$ denotes the binary
 
 
 \begin{thm}\thmlabel{main-2}
-  For every integer $k\ge 3$ any $\beta < (k-2)/k$ and every sufficiently
-  large $n$, there exists a $kn$-vertex graph $G$ of pathwidth $2k-1$,
-  maximum degree $3k-1$ with $\pi_\alpha(G)\ge \beta k\log n$.
+  For every integer $k\ge 3$ and every $n\in\N$, there exists a
+  $kn$-vertex graph $G$ of pathwidth $2k-1$, maximum degree $3k-1$
+  with $\pi_\alpha(G)\ge (k-2)\log(n/3)$.
 \end{thm}
 
 These two results show that the straight-forward divide-and-conquer
@@ -333,58 +336,30 @@ the same.
 \section{Proof of \thmref{main-2}}
 
 \begin{lem}\lemlabel{marriage}
-   For every integer $k\ge 3$ and every $\beta < (k-2)/k$, there
-   exists an integer $n_0$ such that, for every sequence of sets
-   $X_1,\ldots,X_n\subseteq\Sigma$, each of size $k>2$, with $|\Sigma|\le
-   \beta k\log n$ and $n\ge n_0$, there
-   exists indices $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such
-   that, for each $\ell\in\{i,\ldots,j\}$,  $X_\ell'\subseteq X_\ell$,
-   $|X_\ell'|\ge 2$ and, for each $a\in\Sigma$ the number of subsets in
-   $X_i',\ldots,X_j'$ that contain $a$ is even.
+   For every sequence of sets $X_1,\ldots,X_n\subseteq\Sigma$, each of
+   size $k>2$, with $|\Sigma|\le (k-2)\log(n/3)$, there exists indices
+   $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such that, for each
+   $\ell\in\{i,\ldots,j\}$,  $X_\ell'\subseteq X_\ell$, $|X_\ell'|\ge 2$
+   and, for each $a\in\Sigma$ the number of subsets in $X_i',\ldots,X_j'$
+   that contain $a$ is even.
 \end{lem}
 
 \begin{proof}
-   The proof is by induction on $n$.  The cases $n=1$ and $n=2$ are vacuous, 
-   since we must have $|\Sigma|\ge k$ but also $|\Sigma|\le \beta k\log n < k$.
+   For any $1\le i\le j\le n$, let $\Sigma_{i,j}=\bigcup_{\ell=1}^j
+   X_i$ and, for any $I\subset\Sigma_{i,j}$, let
+   $N_{i,j}(I)=\{\ell\in\{i,\ldots,j\}: X_\ell\cap I\neq\emptyset \}$.
 
-   For a set $I\subset\Sigma$, let $N(I)=\{i\in\{1,\ldots,n\}: X_i\cap
-   I\neq\emptyset\}$.  Suppose that there exists some $I\subset\Sigma$ 
-   such that $|N(I)| < |I|/(k-2)$.  Then the elements of $N(I)$ partition
-   $\{1,\ldots,n\}$ into at most $|N(I)|+1$ intervals, one of which must
-   contain at least
-   \[
-       r \ge \frac{n-N(I)}{N(I)+1} > \frac{n}{N(I)+1}-1 
-   \]
-   elements. Thus, there is a sequence
-   $X_1',\ldots,X_r'=X_{i'+1},\ldots,X_{i'+r}$  such that
-   $\bigcup_{i=1}^r X_i' \subseteq \Sigma\setminus I$.  Therefore, we can apply
-   induction on $X_1'\ldots,X_r'$ on the alphabet $\Sigma'=\Sigma\setminus
-   I$ provided that
-   \[
-         |\Sigma'| = |\Sigma|-|I| < \beta k\log r \enspace .
-   \]
-   This is indeed true, since
-   \begin{align*}
-      \beta k\log r 
-             & > \beta k\log\left(\frac{n}{|N(I)|+1}-1\right) \\
-             & = \beta k\log\left(\frac{n}{|N(I)|+1}\right) 
-               - O\left(\frac{\log n}{n}\right)  
-               & \text{(since $|N(I)|=O(\log n)$)} \\
-             & = \beta k\left(\log n - \log (|N(I)|+1)\right)
-                  - O\left(\frac{\log n}{n}\right)    \\
-             & > |\Sigma| - \beta k\log (|N(I)|+1) 
-                  - O\left(\frac{\log n}{n}\right) \\
-             & \ge |\Sigma| - \beta k|N(I)| - O\left(\frac{\log n}{n}\right) 
-                & \text{(since $\log(x+1) \le x$ for all $x\ge 1$)} \\
-             & > |\Sigma| - \frac{\beta k|I|}{k-2}- O\left(\frac{\log n}{n}\right) 
-                & \text{(since $|I|>(k-2)|N(I)|$)}  \\
-             & > |\Sigma| - |I| 
-                & \text{(since $\beta < (k-2)/k$ and $n\ge n_0$).} 
-   \end{align*}
+   Suppose that there is some pair $1\le i\le j$ such that, for every
+   $I\subseteq\Sigma_{i,j}$, 
+   \begin{equation}
+       |N_{i,j}(I)| \ge |I|/(k-2) \enspace . \eqlabel{hall}
+   \end{equation}
+   In this case,
+   we will show the existence of the desired sets $X_{i}',\ldots,x_{j}'$.
+   Without loss of generality, assume $i=1$, $j=n$, and define $N=N_{1,n}$.
 
-   Thus, we may assume that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
-   |I|/(k-2)$.  We will show that in this case, the lemma is true
-   with $i=1$ and $j=n$.  Define a bipartite graph $H$ with vertex
+   Thus we are assuming that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
+   |I|/(k-2)$.  Define a bipartite graph $H$ with vertex
    set $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set $E(H)=\{(a,i):
    i\in\{1,\ldots,n\}, a\in X_i\}$.  We will show that $E(H)$ contains a
    subset $E'$ such that each element $a\in\Sigma$ appears exactly once in
@@ -401,9 +376,10 @@ the same.
 
    All that remains is to prove the existence of the edge set $E'$, which
    we do using an augmenting paths argument like that used, for example,
-   to prove Hall's Marriage Theorem.  
-   Consider an edge set $E'\subseteq E(H)$ that contains exactly 
-   one edge incident to each $a\in\Sigma$ and let $f:\Sigma\to\{1,\ldots,n\}$ be the corresponding mapping.  Then we define
+   to prove Hall's Marriage Theorem.  Consider an edge set $E'\subseteq
+   E(H)$ that contains exactly one edge incident to each $a\in\Sigma$
+   and let $f:\Sigma\to\{1,\ldots,n\}$ be the corresponding mapping.
+   Then we define
    \[
       \Phi(E') = \sum_{i=1}^n\max\{0, |f^{-1}(i)|-(k-2)\} \enspace .
    \]
@@ -417,11 +393,12 @@ the same.
        |N(\Sigma_0)| \ge \left\lceil\frac{|\Sigma_0|}{k-2}\right\rceil \ge 
 \left\lceil\frac{k-1}{k-2}\right\rceil = 2 \enspace .
    \]
-   In particular, $N(\Sigma_0)\setminus\{i_0\}$ is non-empty.
-   Let $I_0=\{i_0\}$ and observe that each $i_1\in N(\Sigma_0)\setminus I_0$
+   In particular, $N(\Sigma_0)\setminus\{i_0\}$ is non-empty.  Let
+   $I_0=\{i_0\}$ and observe that each $i_1\in N(\Sigma_0)\setminus I_0$
    must have $|f^{-1}(i_1)|\ge k-2$ since, otherwise we could replace
    the edge $(a_1,i_0)$ with $(a_1,i_1)$ in $E'$ and this would decrease
-   $\Phi(E')$.  Let $I_1=N(\Sigma_0)$ and let $\Sigma_1=\bigcup_{i_1\in I_i} f^{-1}(i_1)$.  We have just argued that 
+   $\Phi(E')$.  Let $I_1=N(\Sigma_0)$ and let $\Sigma_1=\bigcup_{i_1\in
+   I_i} f^{-1}(i_1)$.  We have just argued that
    \[
         |\Sigma_1|\ge |I_1|(k-2)+1
    \]
@@ -432,15 +409,58 @@ the same.
             \ge |I_1|+1 \enspace .
    \]
    But now we can continue this argument, defining $I_j=N(\Sigma_{j-1})$
-   and $\Sigma_j=\bigcup_{i_j\in I_j} f^{-1}(i_j)$.  Again, each $i_j\in
-   I_j\setminus \bigcup_{\ell=1}^{j-1} I_\ell$ must have $|f^{-1}(i_j)|\ge
-   k-2$, otherwise we can find a path $i_0,a_0,i_1,a_1,\ldots,a_{j-1}i_j$
-   and replace, in $E'$,
-   the edges $i_0a_0,\ldots,i_{j-1}a_{j-1}$ with $a_0i_1,a_1i_2,\ldots,a_{j-1}i_j$ which would decrease $\Phi(E')$.
-   In this way, we obtain an infinite
+   and $\Sigma_j=\bigcup_{i_j\in I_j} f^{-1}(i_j)$.  Again,
+   each $i_j\in I_j\setminus \bigcup_{\ell=1}^{j-1} I_\ell$
+   must have $|f^{-1}(i_j)|\ge k-2$, otherwise we can find a path
+   $i_0,a_0,i_1,a_1,\ldots,a_{j-1}i_j$ and replace, in $E'$, the edges
+   $i_0a_0,\ldots,i_{j-1}a_{j-1}$ with $a_0i_1,a_1i_2,\ldots,a_{j-1}i_j$
+   which would decrease $\Phi(E')$.  In this way, we obtain an infinite
    sequence of subsets $I_0,\ldots,I_\infty\subseteq \{1,\ldots,n\}$
    such that $|I_{j}|>|I_{j-1}|$.  This is clearly a contradiction,
    since each $|I_j|$ is an an integer in $\{1,\ldots,n\}$.
+
+   Now all that remains is to consider the case that, for every
+   $1\le i< j\le n$, there exists a set $I\subset\Sigma_{i,j}$ such
+   that $|N_{i,j}(I)| < |I|/(k-2)$.  In this case, we will show that
+   $|\Sigma|\ge (k-2)\log(n/3)$.
+
+   Let $n_0=n$, $i_0=1$, $j_0=n$, $\Sigma_0=\Sigma$ and let
+   $I_0\subseteq\Sigma_0$ be such that $|N(I_0)| < |I|/(k-2)$.
+   For each integer $\ell$ with $n_{\ell-1}\ge 1$, we define 
+   \begin{enumerate}
+     \item $i_\ell$ and $j_\ell$ such that 
+       $i_{\ell-1}\le i_\ell < j_\ell\le j_{\ell-1}$, 
+       $\{i_\ell,\ldots,j_\ell\}\cap N(I_{\ell-1})=\emptyset$, 
+       and $n_\ell=j_\ell-i_\ell$ is maximized.
+     \item $I_\ell\subset\Sigma_{i_\ell,j_\ell}$ such that
+      $|N_{i_\ell,j_\ell}(I_\ell)| < |I_\ell|/k$;
+   \end{enumerate}
+   In words, $N_{i_\ell,j_\ell}(I_{\ell-1})$ partitions $i_{\ell-1},\ldots,j_{\ell-1}$
+   into intervals and we choose $i_\ell$ and $j_\ell$ to be the endpoints
+   of a largest such interval and recurse on that interval using a new
+   set $I_\ell$.  Observe that, for $\ell \ge 1$,
+   \[
+        n_\ell \ge \frac{n_{\ell-1}-|N(I_{\ell-1})|}{|N(I_{\ell-1})|+1}
+               > \frac{n_{\ell-1}}{|N(I_{\ell-1})|+1} - 1 \enspace .
+   \]
+   Letting $y_\ell=|N_{i_\ell,j_\ell}(I_\ell)|$, we  can easily show that
+   \[
+           n_{\ell} \ge \frac{n}{\prod_{\tau=0}^{\ell-1}(y_\tau+1)} - 2 \enspace .
+   \]
+   Note that $n_{\ell+1}$ is defined until $n_{\ell} < 1$ so combining this
+   with the preceding equation and taking logs yields
+   \begin{equation}
+           \sum_{\tau=0}^{\ell-1}(y_\tau+1) > \log(n/3) \eqlabel{constraint}
+   \end{equation}
+   Finally, we observe that the sets $I_0,\ldots,I_\ell$ are disjoint, so
+   \begin{equation}
+          |\Sigma| \ge \sum_{\tau=0}^{\ell-1} |I_\tau| >
+             \sum_{\tau=0}^{\ell-1} (k-2)y_\tau \enspace . \eqlabel{objective}
+   \end{equation}
+   Now, minimizing \eqref{objective} subject to \eqref{constraint} and using
+   the fact that each $y_\tau \ge 1$ is an integer shows that
+   $|\Sigma|\ge (k-2)\log (n/3)$, as desired.  (The minimum is obtained when
+   $\ell=\log(n/3)$ and $y_1=y_2=\cdots=y_{\ell-1}=1$.)
 \end{proof}
 
 
@@ -456,7 +476,7 @@ graph has pathwidth $2k-1$ can be seen from the path decomposition
 $B_1,\ldots,B_{n-2}$ where each $B_i=\{V_i\cup V_{i+1}\}$.
 
 Suppose we have some colouring $\varphi:V(G)\to\Sigma$, with
-$|\Sigma|<\beta k\log n$.  Define the sets $X_1,\ldots,X_n$ where
+$|\Sigma|<(k-2)\log(n/3)$.  Define the sets $X_1,\ldots,X_n$ where
 $X_i=\{\varphi(v): v\in V_i\}$.  By \lemref{marriage}, we can find indices
 $i\in\{0,\ldots,n-1\}$ and $r>0$ and subsets $V_1',\ldots,V_{r}'$ such
 that, for each $\ell\in\{1,\ldots,r\}$,  $V_\ell'\subseteq V_{i+\ell}$, $|V_\ell'|\ge 2$,
@@ -500,7 +520,7 @@ vertices of $V\cap V_1'$ followed by all the vertices of $V\cap V_2'$,
 and so on until visiting all the vertices in $V\cap V_r'$. Next, the path
 returns and visits all the vertices in $W\cap V_r'$, $W\cap V_{r-1}'$,
 and so on back to $W\cap V_1'$.  The existence of the path $P$ shows
-that no colouring of $G$ with $\beta k\log n$ colours is anagram-free, so $\pi_\alpha(G) > \beta k\log n$.
+that no colouring of $G$ with $(k-2)\log(n/3)$ colours is anagram-free, so $\pi_\alpha(G) > (k-2)\log(n/3)$.
 \end{proof}
 
 \section{Remarks}
@@ -509,7 +529,7 @@ We have show that anagram-free chromatic number is not pathwidth-bounded,
 even for planar graphs.  The graph we use in the proof of \thmref{main}
 is a 2-page graph; it has a book embedding using two pages.  Outerplanar
 graphs have a book embedding using a single page.  Is anagram-free
-chromatic number pathwidth-bounded for outerplanar graphs?
+chromatic number pathwidth-bounded for outerplanar graphs?  We do not even know if the $2\times n$ grid has constant anagram-free chromatic number.
 
 
 \bibliographystyle{plainurl}
