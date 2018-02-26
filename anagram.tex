@@ -345,17 +345,17 @@ the same.
 \end{lem}
 
 \begin{proof}
-   For any $1\le i\le j\le n$, let $\Sigma_{i,j}=\bigcup_{\ell=1}^j
+   For any $1\le i\le j\le n$, let $\Sigma_{i,j}=\bigcup_{\ell=i}^j
    X_i$ and, for any $I\subset\Sigma_{i,j}$, let
    $N_{i,j}(I)=\{\ell\in\{i,\ldots,j\}: X_\ell\cap I\neq\emptyset \}$.
 
-   Suppose that there is some pair $1\le i\le j$ such that, for every
+   Suppose that there is some pair of indices $1\le i\le j\le n$ such that, for every
    $I\subseteq\Sigma_{i,j}$, 
    \begin{equation}
        |N_{i,j}(I)| \ge |I|/(k-2) \enspace . \eqlabel{hall}
    \end{equation}
-   In this case,
-   we will show the existence of the desired sets $X_{i}',\ldots,x_{j}'$.
+   In this case
+   we will show the existence of the desired sets $X_{i}',\ldots,X_{j}'$.
    Without loss of generality, assume $i=1$, $j=n$, and define $N=N_{1,n}$.
 
    Thus we are assuming that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
@@ -438,12 +438,12 @@ the same.
    In words, $N_{i_\ell,j_\ell}(I_{\ell-1})$ partitions $i_{\ell-1},\ldots,j_{\ell-1}$
    into intervals and we choose $i_\ell$ and $j_\ell$ to be the endpoints
    of a largest such interval and recurse on that interval using a new
-   set $I_\ell$.  Observe that, for $\ell \ge 1$,
+   set $I_\ell$. Letting $y_\ell=|N_{i_\ell,j_\ell}(I_\ell)|$, observe that, for $\ell \ge 1$,
    \[
-        n_\ell \ge \frac{n_{\ell-1}-|N(I_{\ell-1})|}{|N(I_{\ell-1})|+1}
-               > \frac{n_{\ell-1}}{|N(I_{\ell-1})|+1} - 1 \enspace .
+        n_\ell \ge \frac{n_{\ell-1}-y_{\ell-1}}{y_{\ell-1}+1}
+               > \frac{n_{\ell-1}}{y_{\ell-1}+1} - 1 \enspace .
    \]
-   Letting $y_\ell=|N_{i_\ell,j_\ell}(I_\ell)|$, we  can easily show that
+   By expanding the preceding equation we can easily show that
    \[
            n_{\ell} \ge \frac{n}{\prod_{\tau=0}^{\ell-1}(y_\tau+1)} - 2 \enspace .
    \]
