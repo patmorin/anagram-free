@@ -72,7 +72,7 @@ urlcolor=linkblue}
   chromatic number.  More specifically, we describe $2n$-vertex planar
   graphs of pathwidth 3 with anagram-free chromatic number $\Omega(\log n)$.
   We also describe $kn$ vertex graphs with pathwidth $2k-1$ having
-  anagram-free chromatic number at least $\Omega(k\log n)$.
+  anagram-free chromatic number in $\Omega(k\log n)$.
 \end{abstract}
 %\end{titlepage}
 %
@@ -164,19 +164,19 @@ and Wood can not be strengthened even to planar graphs of pathwidth 3
 and maximum degree 5. (Here and throughout, $\log x=\log_2 x$ denotes the binary logarithm of $x$.)
 
 \begin{thm}\thmlabel{main}
-  For every $n\in N$, there exists a $2n$-vertex planar graph of
+  For every $n\in\N$, there exists a $2n$-vertex planar graph of
   pathwidth 3 and maximum degree 5 whose anagram-free chromatic number
   is at least $\log(n+1)$.
 \end{thm}
 
 
 \begin{thm}\thmlabel{main-2}
-  For every integer $k\ge 3$ and every $n\in\N$, there exists a
-  $kn$-vertex graph $G$ of pathwidth $2k-1$, maximum degree $3k-1$
-  with $\pi_\alpha(G)\ge (k-2)\log(n/3)$.
+  For every $n\in\N$ and every integer $k\ge 3$, there exists a
+  $kn$-vertex graph of pathwidth $2k-1$ and maximum degree $3k-1$
+  whose anagram-free chromatic number is at least $(k-2)\log(n/3)$.
 \end{thm}
 
-These two results show that the straight-forward divide-and-conquer
+These two results show that the straightforward divide-and-conquer
 algorithm using separators gives asymptotically worst-case optimal
 colourings for graphs of pathwidth $k$ and graphs of treewidth $k$.
 
@@ -337,7 +337,7 @@ the same.
 
 \begin{lem}\lemlabel{marriage}
    For every sequence of sets $X_1,\ldots,X_n\subseteq\Sigma$, each of
-   size $k>2$, with $|\Sigma|\le (k-2)\log(n/3)$, there exists indices
+   size $k>2$, with $|\Sigma|< (k-2)\log(n/3)$, there exists indices
    $1\le i< j\le n$ and subsets $X_i',\ldots,X_j'$ such that, for each
    $\ell\in\{i,\ldots,j\}$,  $X_\ell'\subseteq X_\ell$, $|X_\ell'|\ge 2$
    and, for each $a\in\Sigma$ the number of subsets in $X_i',\ldots,X_j'$
@@ -348,8 +348,10 @@ the same.
    For any $1\le i\le j\le n$, let $\Sigma_{i,j}=\bigcup_{\ell=i}^j
    X_i$ and, for any $I\subset\Sigma_{i,j}$, let
    $N_{i,j}(I)=\{\ell\in\{i,\ldots,j\}: X_\ell\cap I\neq\emptyset \}$.
+   We distinguish between two cases.
 
-   Suppose that there is some pair of indices $1\le i\le j\le n$ such that, for every
+   \paragraph{Case 1:}
+   There is some pair of indices $1\le i\le j\le n$ such that, for every
    $I\subseteq\Sigma_{i,j}$, 
    \begin{equation}
        |N_{i,j}(I)| \ge |I|/(k-2) \enspace . \eqlabel{hall}
@@ -358,8 +360,7 @@ the same.
    we will show the existence of the desired sets $X_{i}',\ldots,X_{j}'$.
    Without loss of generality, assume $i=1$, $j=n$, and define $N=N_{1,n}$.
 
-   Thus we are assuming that, for every $I\subseteq\Sigma$,  $|N(I)|\ge
-   |I|/(k-2)$.  Define a bipartite graph $H$ with vertex
+   Define a bipartite graph $H$ with vertex
    set $V(H)=\Sigma\cup\{1,\ldots,n\}$ and edge set $E(H)=\{(a,i):
    i\in\{1,\ldots,n\}, a\in X_i\}$.  We will show that $E(H)$ contains a
    subset $E'$ such that each element $a\in\Sigma$ appears exactly once in
@@ -419,10 +420,24 @@ the same.
    such that $|I_{j}|>|I_{j-1}|$.  This is clearly a contradiction,
    since each $|I_j|$ is an an integer in $\{1,\ldots,n\}$.
 
-   Now all that remains is to consider the case that, for every
-   $1\le i< j\le n$, there exists a set $I\subset\Sigma_{i,j}$ such
-   that $|N_{i,j}(I)| < |I|/(k-2)$.  In this case, we will show that
-   $|\Sigma|\ge (k-2)\log(n/3)$.
+   \paragraph{Case 2:}
+   For every $1\le i< j\le n$, there exists a set $I\subset\Sigma_{i,j}$
+   such that $|N_{i,j}(I)| < |I|/(k-2)$.  In this case, we will show
+   that $|\Sigma|\ge (k-2)\log(n/3)$.
+
+   Before jumping into the messy details, we sketch an inductive proof
+   that gives the main intuition for why $|\Sigma|\in \Omega(k\log n)$:
+   There is some set $I_0\subset\Sigma$ such that $N(I_0)$ partitions
+   $\{1,\ldots,n\}$ into $O(|I|/k)$ intervals.  One such interval
+   $i_0,\ldots,j_0$ must have size $\Omega(nk/|I|)$.  By induction on $n$,
+   $|\Sigma_{i_0,j_0}| = \Omega(k\log (nk/|I|))$.  But $\Sigma_{i_0,j_0}$
+   is disjoint from $I$, so 
+   \[  |\Sigma| \ge |I| + \Omega(k\log (nk/|I|))
+        = |I| + \Omega(k\log n) - O(k\log(|I|/k))
+        = \Omega(k\log n) \enspace .
+   \]
+   The messy details occur when $|I|=k-1$ since then the $|I|$ and
+   $-O(k\log(|I|/k)$ terms are close in magnitude.
 
    Let $n_0=n$, $i_0=1$, $j_0=n$, $\Sigma_0=\Sigma$ and let
    $I_0\subseteq\Sigma_0$ be such that $|N(I_0)| < |I|/(k-2)$.
@@ -430,12 +445,12 @@ the same.
    \begin{enumerate}
      \item $i_\ell$ and $j_\ell$ such that 
        $i_{\ell-1}\le i_\ell < j_\ell\le j_{\ell-1}$, 
-       $\{i_\ell,\ldots,j_\ell\}\cap N(I_{\ell-1})=\emptyset$, 
-       and $n_\ell=j_\ell-i_\ell$ is maximized.
+       $\{i_\ell,\ldots,j_\ell\}\cap N_{i_{\ell-1},j_{\ell-1}}(I_{\ell-1})=\emptyset$, 
+       and $n_\ell=j_\ell-i_\ell+1$ is maximized.
      \item $I_\ell\subset\Sigma_{i_\ell,j_\ell}$ such that
       $|N_{i_\ell,j_\ell}(I_\ell)| < |I_\ell|/k$;
    \end{enumerate}
-   In words, $N_{i_\ell,j_\ell}(I_{\ell-1})$ partitions $i_{\ell-1},\ldots,j_{\ell-1}$
+   In words, $N_{i_{\ell-1},j_{\ell-1}}(I_{\ell-1})$ partitions $i_{\ell-1},\ldots,j_{\ell-1}$
    into intervals and we choose $i_\ell$ and $j_\ell$ to be the endpoints
    of a largest such interval and recurse on that interval using a new
    set $I_\ell$. Letting $y_\ell=|N_{i_\ell,j_\ell}(I_\ell)|$, observe that, for $\ell \ge 1$,
@@ -452,7 +467,7 @@ the same.
    \begin{equation}
            \sum_{\tau=0}^{\ell-1}(y_\tau+1) > \log(n/3) \eqlabel{constraint}
    \end{equation}
-   Finally, we observe that the sets $I_0,\ldots,I_\ell$ are disjoint, so
+   Finally, observe that the sets $I_0,\ldots,I_{\ell-1}$ are disjoint, so
    \begin{equation}
           |\Sigma| \ge \sum_{\tau=0}^{\ell-1} |I_\tau| >
              \sum_{\tau=0}^{\ell-1} (k-2)y_\tau \enspace . \eqlabel{objective}
@@ -520,7 +535,7 @@ vertices of $V\cap V_1'$ followed by all the vertices of $V\cap V_2'$,
 and so on until visiting all the vertices in $V\cap V_r'$. Next, the path
 returns and visits all the vertices in $W\cap V_r'$, $W\cap V_{r-1}'$,
 and so on back to $W\cap V_1'$.  The existence of the path $P$ shows
-that no colouring of $G$ with $(k-2)\log(n/3)$ colours is anagram-free, so $\pi_\alpha(G) > (k-2)\log(n/3)$.
+that no colouring of $G$ with fewer than $(k-2)\log(n/3)$ colours is anagram-free, so $\pi_\alpha(G) \ge (k-2)\log(n/3)$.
 \end{proof}
 
 \section{Remarks}
