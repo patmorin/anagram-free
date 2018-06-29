@@ -94,20 +94,29 @@ $\pi_\alpha(G)$, is the smallest value of $c$ for which $G$ has an
 anagram-free $c$-colouring.
 
 Answering a long-standing question of Erd\H{o}s and Brown, Ker\"anen
-\cite{keranen:abelian} showed that the path $P_n$ on $n$ vertices has an
-anagram-free 4-colouring.  A straightforward divide-and-conquer
-algorithm applied to any $n$-vertex graph of treewidth $k$ yields
-an anagram-free $O(k\log n)$-colouring.  The same divide-and-conquer
-algoritm, applied to graphs that exclude a fixed minor gives an anagram
-free $O(\sqrt{n})$-colouring \cite{kamcev.luczak.ea:anagram-free}.
-An interesting variant of this divide-and-conquer algorithm is used by
-Wilson and Wood \cite{wilson.wood:anagram-free} to obtain anagram-free
-$(4k+1)$-colourings of trees of pathwidth $k$.  On the negative side,
-Kamčev, Łuczak, and Sudakov \cite{kamcev.luczak.ea:anagram-free} and
-Wilson and Wood \cite{wilson.wood:anagram-free} have shown that there
-are trees---even binary trees---with arbitrarily large anagram-free
-chromatic number.  These results, and some others, are summarized in
-\tabref{results}.
+\cite{keranen:abelian} showed that, for any $n$, the path $P_n$ on
+$n$ vertices has an anagram-free 4-colouring.  A straightforward
+divide-and-conquer algorithm applied to any $n$-vertex graph of
+treewidth\footnote{A \emph{tree decomposition} $(T,B)$ of a graph $G$ consists of a tree $T$ and set $B=\{B_x : x\in V(T)\}$ of subsets of $V(G)$ called \emph{bags} that are indexed by the nodes of $T$ with the following properties:
+\begin{enumerate}
+   \item  for every edge $uw\in E(G)$, there is at least one bag $B_x$, $x\in V(T)$ with $u,w\in B_x$; and
+   \item for every vertex $v\in V(G)$, the set $T[v]=\{x\in V(T): v\in B_x\}$ induces a (connected) subtree of $T$.
+\end{enumerate}
+The \emph{width} of a tree decomposition $(T,B)$ is the size $\max\{|B_x|:x\in V(T)\}$ of its largest bag.  The \emph{treewidth} of a graph $G$ is the minimum width of any tree decomposition of $G$.}
+ at most $k$ yields an anagram-free $O(k\log n)$-colouring.
+The same divide-and-conquer algoritm, applied to graphs that
+exclude a fixed minor gives an anagram free $O(\sqrt{n})$-colouring
+\cite{kamcev.luczak.ea:anagram-free}.  
+
+An interesting variant
+of this divide-and-conquer algorithm is used by Wilson and Wood
+\cite{wilson.wood:anagram-free} to obtain anagram-free $(4k+1)$-colourings
+of trees of pathwidth\footnote{A \emph{path decomposition} of $G$ is a tree decomposition $(P,B)$ of $G$ where $P$ is a path.  The \emph{pathwidth} of $G$ is the minimum width of any path decomposition of $G$.}
+ $k$.  On the negative side, Kamčev, Łuczak,
+and Sudakov \cite{kamcev.luczak.ea:anagram-free} and Wilson and Wood
+\cite{wilson.wood:anagram-free} have shown that there are trees---even
+binary trees---with arbitrarily large anagram-free chromatic number.
+These results, and some others, are summarized in \tabref{results}.
 
 \begin{table}
   \begin{center}
@@ -132,7 +141,7 @@ chromatic number.  These results, and some others, are summarized in
          & \cite[Theorem~6]{wilson.wood:anagram-free2} \\
        Planar graphs & $\pi_\alpha(G)\in O(\sqrt{n})$ &
               \cite[Corollary~2.3]{kamcev.luczak.ea:anagram-free} \\
-       Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n/\log\log n)$ 
+       Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
          & \cite[Proposition~2.4]{kamcev.luczak.ea:anagram-free} \\
            & & \cite[Theorem~1]{wilson.wood:anagram-free} \\
        Planar graphs of pathwidth $3$ & $\pi_\alpha(G) \in \Omega(\log n)$
@@ -180,6 +189,9 @@ These two results show that the straightforward divide-and-conquer
 algorithm using separators gives asymptotically worst-case optimal
 colourings for graphs of pathwidth $k$ and graphs of treewidth $k$.
 
+
+
+
 \section{Proof of \thmref{main}}
 
 Let $s\in\Sigma^*$ be a string over some alphabet $\Sigma$.  For each
@@ -220,7 +232,7 @@ substrings must use an alphabet of at least logarithmic size.
 
 The next lemma says that if we split an even string into consecutive
 pairs, then we can can colour one element of each pair red and the other
-blue in such a way that the resulting red and blue multisets are exactly
+blue in so that the resulting red and blue multisets are exactly
 the same.
 \begin{lem}\lemlabel{splitting}
   Let $s=s_0,\ldots,s_{2r-1}\in\Sigma^{2r}$ be an even string. Then there
@@ -234,8 +246,11 @@ the same.
   Suppose for the sake of contradiction that the lemma is not true, and
   let $s$ be the shortest counterexample.  For $v\in\{0,1\}^{r}$, let
   $s_{\overline{v}}=s_{0+1-v_0},s_{2+1-v_1},\ldots,s_{2(r-1)+1-v_{r-1}}$
-  be the complement of $s_v$.  Let $v\in\{0,1\}^{r}$ be the binary vector
-  that minimizes
+  be the complement of $s_v$.  Note that, for any $v\in\{0,1\}^{r}$
+  and any $a\in\Sigma$, $n_a(s_v)+n_a(s_{\overline{v}})=n_a(s)$.
+  Therefore, $v$ satisifies the conditions of the lemma if and
+  only if $n_a(s_v)=n_a(s_{\overline{v}})$ for all $a\in\Sigma$.
+  Let $v\in\{0,1\}^{r}$ be the binary vector that minimizes
   \begin{equation}\eqlabel{minimizer}
      \sum_{a\in\Sigma}|n_a(s_v)-n_a(s_{\overline{v}})| \enspace .
   \end{equation}
@@ -248,10 +263,10 @@ the same.
   is non-zero, there exists some $j_1$ such that $n_{x_{j_1}}(s_v) >
   n_{x_{j_1}}(s_{\overline{v}})$.  This means that $n_{y_{j_1}}(s_v) \ge
   n_{y_{j_1}}(s_{\overline{v}})$, otherwise flipping\footnote{Here and
-  throughout, flipping a binary variable $b$ means changing its value to $1-b$.}
+  throughout, \emph{flipping} a binary variable $b$ means changing its value to $1-b$.}
   $v_{j_1}$ would decrease \eqref{minimizer} by two.  Furthermore,
-  $y_{j_1}\neq x_{j_1}$ since, otherwise, we could remove $s_{2j}$
-  and $s_{2j+1}$ from $s$ and obtain a smaller counterexample, since
+  $y_{j_1}\neq x_{j_1}$ since, otherwise, we could remove $s_{2j_1}$
+  and $s_{2j_1+1}$ from $s$ and obtain a smaller counterexample, since
   the value of $v_j$ has no effect on \eqref{minimizer}.
 
   Refer to \figref{swapping}.
@@ -291,13 +306,14 @@ the same.
 
 \begin{proof}[Proof of \thmref{main}]
   Let $G$ be the graph with vertex set
-  $V(G)=\{x_1,\ldots,x_{n},y_1,\ldots,y_{n}\}$ and with edge set
+  $V(G)=\{x_0,\ldots,x_{n-1},y_0,\ldots,y_{n-1}\}$ and with edge set
   \[
-    E(G) = \{x_iy_i : i\in\{0,\ldots,n-1\}\} 
-              \cup \bigcup_{i=0}^{n-2} \{x_iy_{i+1},x_{i+1}y_i\} \enspace .
+    E(G) = \bigcup_{i=0}^{n-2} \{x_ix_{i+1},x_iy_{i+1},y_iy_{i+1},y_ix_{i+1}\} 
+           \cup \{x_iy_i : i\in\{0,\ldots,n-1\}\} \enspace .
   \]
   The graph $G$ has pathwidth 3 as can be seen from the path decomposition
-  $B_0,\ldots,B_{n-2}$ where $B_i=\{v_i,w_i,v_{i+1},w_{i+1}\}$.  See
+  whose bags are
+  $B_0,\ldots,B_{n-2}$ where $B_i=\{x_i,y_i,x_{i+1},y_{i+1}\}$.  See
   \figref{graph}. Although not immediately obvious from \figref{graph},
   $G$ is also planar---see \figref{planar}.
   
@@ -321,12 +337,12 @@ the same.
   Now, consider some colouring $\varphi:V(G)\to\Sigma$
   with $|\Sigma| < \log(n+1)$.  Applying \lemref{parity} to
   the string 
-  $s=\varphi(x_1),\varphi(y_1),\ldots,\varphi(x_n),\varphi(y_n)$ we
+  $s=\varphi(x_0),\varphi(y_0),\ldots,\varphi(x_{n-1}),\varphi(y_{n-1})$ we
   conclude that there is some $i < j$ such that 
   $\varphi(x_{i}),\varphi(y_i),\ldots,\varphi(x_j),\varphi(y_j)$
   is even.  By \lemref{splitting} and the
   symmetry between each $x_i$ and $y_i$ we can assume that
-  $n_a(\varphi_(x_i),\ldots,\varphi(x_j))=n_a(\varphi(y_i),\ldots,\varphi(y_j))$
+  $n_a(\varphi(x_i),\ldots,\varphi(x_j))=n_a(\varphi(y_i),\ldots,\varphi(y_j))$
   for each $a\in\Sigma$.  But then the path
   $x_i,\ldots,x_j,y_j,y_{j-1},\ldots,y_i$ has a colour sequence
   $\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y_i)$
@@ -418,7 +434,7 @@ the same.
    which would decrease $\Phi(E')$.  In this way, we obtain an infinite
    sequence of subsets $I_0,\ldots,I_\infty\subseteq \{1,\ldots,n\}$
    such that $|I_{j}|>|I_{j-1}|$.  This is clearly a contradiction,
-   since each $|I_j|$ is an an integer in $\{1,\ldots,n\}$.
+   since each $|I_j|$ is an integer in $\{1,\ldots,n\}$.
 
    \paragraph{Case 2:}
    For every $1\le i< j\le n$, there exists a set $I\subset\Sigma_{i,j}$
@@ -427,13 +443,12 @@ the same.
 
    Before jumping into the messy details, we sketch an inductive proof
    that gives the main intuition for why $|\Sigma|\in \Omega(k\log n)$:
-   There is some set $I_0\subset\Sigma$ such that $N(I_0)$ partitions
-   $\{1,\ldots,n\}$ into $O(|I|/k)$ intervals.  One such interval
-   $i_0,\ldots,j_0$ must have size $\Omega(nk/|I|)$.  By induction on $n$,
-   $|\Sigma_{i_0,j_0}| = \Omega(k\log (nk/|I|))$.  But $\Sigma_{i_0,j_0}$
-   is disjoint from $I$, so 
-   \[  |\Sigma| \ge |I| + \Omega(k\log (nk/|I|))
-        = |I| + \Omega(k\log n) - O(k\log(|I|/k))
+   There is some set $I_0\subset\Sigma$ such that $[1,n]\setminus N(I_0)$ consists of $O(|I_0|/k)$ intervals.  One such interval
+   contains $\Omega(nk/|I_0|)$ integers $i_0,\ldots,j_0$.  By induction on $n$,
+   $|\Sigma_{i_0,j_0}| = \Omega(k\log (nk/|I_0|))$.  But $\Sigma_{i_0,j_0}$
+   is disjoint from $I_0$, so 
+   \[  |\Sigma| \ge |I_0| + \Omega(k\log (nk/|I_0|))
+        = |I_0| + \Omega(k\log n) - O(k\log(|I_0|/k))
         = \Omega(k\log n) \enspace .
    \]
    The messy details occur when $|I|=k-1$ since then the $|I|$ and
@@ -487,15 +502,16 @@ generalization of the pathwidth $3$ graph used in the proof of
 $V_1,\ldots,V_n$, each size of size $k$.  For each $i\in\{1,\ldots,n\}$,
 $V_i$ is a clique and, for each $i\in\{1,\ldots,n-1\}$, every
 vertex in $V_i$ is adjacent to every vertex in $V_{i+1}$.  That this
-graph has pathwidth $2k-1$ can be seen from the path decomposition
-$B_1,\ldots,B_{n-2}$ where each $B_i=\{V_i\cup V_{i+1}\}$.
+graph has pathwidth $2k-1$ can be seen from the path decomposition whose
+bags are
+$B_1,\ldots,B_{n-1}$ where each $B_i=\{V_i\cup V_{i+1}\}$.
 
 Suppose we have some colouring $\varphi:V(G)\to\Sigma$, with
 $|\Sigma|<(k-2)\log(n/3)$.  Define the sets $X_1,\ldots,X_n$ where
 $X_i=\{\varphi(v): v\in V_i\}$.  By \lemref{marriage}, we can find indices
 $i\in\{0,\ldots,n-1\}$ and $r>0$ and subsets $V_1',\ldots,V_{r}'$ such
 that, for each $\ell\in\{1,\ldots,r\}$,  $V_\ell'\subseteq V_{i+\ell}$, $|V_\ell'|\ge 2$,
-and such that each colour $a\in\Sigma$ appears in an even number of
+and such that each colour $a\in\Sigma$ is used in an even number of
 $V_1',\ldots,V_r'$.
 
 Next, label the vertices in $V_1',\ldots,V_r'$ red and blue as
@@ -510,19 +526,22 @@ Observe that, since $\sum_{i=1}^r|V_i'|$ is even, $t$ is also even,
 so exactly half the vertices in $\bigcup_{i=1}^r V_i'$ are red and half
 are blue.
 
-Now, consider the following perfect bichromatic matching of
+Now, consider the following perfect bichromatic matching of the complete
+graph whose vertex set is
 $\bigcup_{i=1}^r V_i'$: In every set $V_i'$ of even size we match each
 red vertex in $V_i'$ with a blue vertex in $V_i'$.  In each odd size set
 $Q_i$, we match $\lfloor|Q_i|/2\rfloor$ red vertices with blue vertices
 leaving one vertex $v_i$ unmatched.  This leaves $t$ unmatched vertices
-$v_1,\ldots,v_t$ and these vertices alternate colour between red and
-blue. To complete the matching, we match $v_{2i}$ with $v_{2i-1}$ for
+$u_1,\ldots,u_t$ and these vertices alternate colour between red and
+blue. To complete the matching, we match $u_{2i}$ with $u_{2i-1}$ for
 each $i\in\{1,\ldots,t/2\}$.
 
 Now, treat this matching as a long string $s=x_1,y_1,\ldots,x_q,y_q$
 where each $x_i=\varphi(v_i)$, each $y_i=\varphi(w_i)$, and each
-$(v_i,w_i)$ is a matched pair of vertices.  Now, applying
-\lemref{splitting} to $s$, we obtain two sets of vertices
+$(v_i,w_i)$ is a matched pair of vertices.  
+By construction, $s$ is an even string of length $2q$ so
+applying
+\lemref{splitting} to $s$ we obtain two sets of vertices
 $V=\{v_1',\ldots,v_q'\}$ and $W=\{w_1',\ldots,w_q'\}$ such that, 
 for each $a\in\Sigma$,
 $n_a(\varphi(v_1),\ldots,\varphi(v_q))=n_a(\varphi(w_1),\ldots,\varphi(w_q))$.
@@ -539,6 +558,14 @@ that no colouring of $G$ with fewer than $(k-2)\log(n/3)$ colours is anagram-fre
 \end{proof}
 
 \section{Remarks}
+
+We have shown that the anagram-free chromatic number of graphs of
+pathwidth 3 is unbounded. Graph of pathwidth 1 are caterpillars (a
+special case of trees) and therefore, by the result of Wilson and
+Wood \cite{wilson.wood:anagram-free}, have anagram-free chromatic number at
+most 5.  It is still open problem, explicitly stated by Wilson and Wood
+to determine if graphs of pathwidth 2 have bounded
+anagram-free chromatic number.
 
 We have show that anagram-free chromatic number is not pathwidth-bounded,
 even for planar graphs.  The graph we use in the proof of \thmref{main}
