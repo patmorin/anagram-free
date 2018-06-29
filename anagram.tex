@@ -1,30 +1,32 @@
-\documentclass{patmorin}
+\documentclass{llncs}
 \listfiles
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
-\usepackage{amsthm,amsmath,graphicx}
+% conflicts with llncs.cls : \usepackage{amsthm}
+\usepackage{amsmath,graphicx}
 \usepackage{pat}
-\usepackage[letterpaper]{hyperref}
-\usepackage[table,dvipsnames]{xcolor}
-\definecolor{linkblue}{named}{Blue}
-\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
-citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
-urlcolor=linkblue} 
-\setlength{\parskip}{1ex}
+%\usepackage[letterpaper]{hyperref}
+%\usepackage[table,dvipsnames]{xcolor}
+%\definecolor{linkblue}{named}{Blue}
+%\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
+%citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
+%urlcolor=linkblue} 
+%\setlength{\parskip}{1ex}
 \usepackage{wasysym}
 
-\title{\MakeUppercase{Anagram-Free Chromatic Number is not Pathwidth-Bounded}%
+\title{Anagram-Free Chromatic Number is not Pathwidth-Bounded%
    \thanks{This work was partly funded by NSERC and the Ontario Ministry of
     Research, Innovation and Science}}
 
-\author{Paz Carmi%
-   \thanks{Department of Computer Science,
-           Ben-Gurion University of the Negev}\quad%
-   Vida Dujmović%
-   \thanks{School of Computer Science and Electrical Engineering, 
-           University of Ottawa}\quad%
-   Pat Morin%
-   \thanks{School of Computer Science, Carleton University}}%
+\author{Paz Carmi\inst{1}%
+    \and Vida Dujmović\inst{2}
+    \and Pat Morin\inst{3}}
+
+\institute{Department of Computer Science,
+           Ben-Gurion University of the Negev 
+          \and School of Computer Science and Electrical Engineering, 
+           University of Ottawa
+          \and School of Computer Science, Carleton University}
 
 %\usepackage[mathlines]{lineno}
 %\linenumbers
@@ -574,7 +576,7 @@ graphs have a book embedding using a single page.  Is anagram-free
 chromatic number pathwidth-bounded for outerplanar graphs?  We do not even know if the $2\times n$ grid has constant anagram-free chromatic number.
 
 
-\bibliographystyle{plainurl}
+\bibliographystyle{splncs03}
 \bibliography{anagram}
 
 \end{document}
