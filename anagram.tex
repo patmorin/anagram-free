@@ -3,7 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
 % conflicts with llncs.cls : \usepackage{amsthm}
-\usepackage{amsmath,graphicx}
+\usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage{pat}
 %\usepackage[letterpaper]{hyperref}
 %\usepackage[table,dvipsnames]{xcolor}
@@ -143,7 +144,7 @@ These results, and some others, are summarized in \tabref{results}.
          & \cite[Theorem~6]{wilson.wood:anagram-free2} \\
        Planar graphs & $\pi_\alpha(G)\in O(\sqrt{n})$ &
               \cite[Corollary~2.3]{kamcev.luczak.ea:anagram-free} \\
-       Planar graphs of maximum degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
+       Planar graphs of max.\ degree 3 & $\pi_\alpha(G)\in\Omega(\log n)$ 
          & \cite[Proposition~2.4]{kamcev.luczak.ea:anagram-free} \\
            & & \cite[Theorem~1]{wilson.wood:anagram-free} \\
        Planar graphs of pathwidth $3$ & $\pi_\alpha(G) \in \Omega(\log n)$
@@ -229,6 +230,7 @@ substrings must use an alphabet of at least logarithmic size.
   \]
   and since $P(t_i)=P(t_j)$, this implies that $P(s_{2i},\ldots,s_{2j-1})=\langle0,\ldots,0\rangle$
   and $s_{2i},\ldots,s_{2j-1}$ is even, as required.
+  \qed
 \end{proof}
 
 
@@ -246,7 +248,7 @@ the same.
 
 \begin{proof}
   Suppose for the sake of contradiction that the lemma is not true, and
-  let $s$ be the shortest counterexample.  For $v\in\{0,1\}^{r}$, let
+  let $s$ be the shortest counterexample.  For each binary vector $v\in\{0,1\}^{r}$, let
   $s_{\overline{v}}=s_{0+1-v_0},s_{2+1-v_1},\ldots,s_{2(r-1)+1-v_{r-1}}$
   be the complement of $s_v$.  Note that, for any $v\in\{0,1\}^{r}$
   and any $a\in\Sigma$, $n_a(s_v)+n_a(s_{\overline{v}})=n_a(s)$.
@@ -304,6 +306,7 @@ the same.
   the minimality of $s$. Indeed, by removing
   $s_{2_{j_{k'}}},s_{2j_{k'}+1},s_{2j_{k'+1}},s_{2j_{k'+1}+1},\ldots,s_{2j_{k-1}},s_{2j_{k-1}+1}$
   from $s$ we obtain a smaller counterexample.
+  \qed
 \end{proof}
 
 \begin{proof}[Proof of \thmref{main}]
@@ -329,7 +332,7 @@ the same.
   
   \begin{figure}
     \begin{center}
-      \includegraphics[width=\textwidth]{figs/planar}
+      \includegraphics[width=.95\textwidth]{figs/planar}
     \end{center}
     \caption{The graph $G$ in the proof of \thmref{main} is planar
      and is even a 2-page graph.}
@@ -347,8 +350,9 @@ the same.
   $n_a(\varphi(x_i),\ldots,\varphi(x_j))=n_a(\varphi(y_i),\ldots,\varphi(y_j))$
   for each $a\in\Sigma$.  But then the path
   $x_i,\ldots,x_j,y_j,y_{j-1},\ldots,y_i$ has a colour sequence
-  $\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y_i)$
+  %$\varphi(x_i),\ldots,\varphi(x_j),\varphi(y_j),\varphi(y_{j-1}),\ldots,\varphi(y_i)$
   that is an anagram.
+  \qed
 \end{proof}
 
 \section{Proof of \thmref{main-2}}
@@ -493,6 +497,7 @@ the same.
    the fact that each $y_\tau \ge 1$ is an integer shows that
    $|\Sigma|\ge (k-2)\log (n/3)$, as desired.  (The minimum is obtained when
    $\ell=\log(n/3)$ and $y_1=y_2=\cdots=y_{\ell-1}=1$.)
+   \qed
 \end{proof}
 
 
@@ -557,6 +562,7 @@ and so on until visiting all the vertices in $V\cap V_r'$. Next, the path
 returns and visits all the vertices in $W\cap V_r'$, $W\cap V_{r-1}'$,
 and so on back to $W\cap V_1'$.  The existence of the path $P$ shows
 that no colouring of $G$ with fewer than $(k-2)\log(n/3)$ colours is anagram-free, so $\pi_\alpha(G) \ge (k-2)\log(n/3)$.
+\qed
 \end{proof}
 
 \section{Remarks}
