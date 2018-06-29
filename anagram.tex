@@ -102,11 +102,17 @@ treewidth\footnote{A \emph{tree decomposition} $(T,B)$ of a graph $G$ consists o
    \item  for every edge $uw\in E(G)$, there is at least one bag $B_x$, $x\in V(T)$ with $u,w\in B_x$; and
    \item for every vertex $v\in V(G)$, the set $T[v]=\{x\in V(T): v\in B_x\}$ induces a (connected) subtree of $T$.
 \end{enumerate}
-The \emph{width} of a tree decomposition $(T,B)$ is the size $\max\{|B_x|:x\in V(T)\}$ of its largest bag.  The \emph{treewidth} of a graph $G$ is the minimum width of any tree decomposition of $G$.}
+The \emph{width} of a tree decomposition $(T,B)$ is the size
+$\max\{|B_x|:x\in V(T)\}$ of its largest bag.  The \emph{treewidth}
+of a graph $G$ is the minimum width of any tree decomposition of $G$.}
  at most $k$ yields an anagram-free $O(k\log n)$-colouring.
-The same divide-and-conquer algoritm, applied to graphs that
+The same divide-and-conquer algorithm, applied to graphs that
 exclude a fixed minor gives an anagram free $O(\sqrt{n})$-colouring
-\cite{kamcev.luczak.ea:anagram-free}.  
+\cite{kamcev.luczak.ea:anagram-free}.\footnote{These divide-and-conquer algorithms
+actually satisfy the more stringent requirement of a \emph{linear
+colouring} \cite{kun.obrien.ea:treedepth}, 
+in which ever path $P$ in $G$ contains a vertex
+whose colour is unique in $P$.}
 
 An interesting variant
 of this divide-and-conquer algorithm is used by Wilson and Wood
@@ -572,6 +578,30 @@ even for planar graphs.  The graph we use in the proof of \thmref{main}
 is a 2-page graph; it has a book embedding using two pages.  Outerplanar
 graphs have a book embedding using a single page.  Is anagram-free
 chromatic number pathwidth-bounded for outerplanar graphs?  We do not even know if the $2\times n$ grid has constant anagram-free chromatic number.
+
+%A colouring of a graph $G$ is a \emph{linear colouring} if any path in
+%$G$ contains some color that occurs exactly once \cite{X}.  The linear
+%colouring number $\chilin(G)$ of a graph $G$ is the minimum number of
+%colours in any linear colouring of $G$.  Clearly any linear colouring
+%is also an anagram-free colouring, so $\chilin(G)\ge \pi_\alpha(G)$.
+%It is also not hard to see that the path $P_n$ on $n$ vertices has
+%$\chilin(P_n)\in\Omega(\log n)$ but, by the result of Ker\"anen,
+%$\pi_\alpha(P_n)\le 4$ so linear colouring is a stricly stricter
+%requirement than anagram-free colouring.  However, the divide-and-conquer
+%separator-based algorithm for anagram-free colouring actually generates
+%a linear colouring and, from the current results, this algorithm uses a
+%constant number of colours $O(k\log n)$ that is within a constant factor
+%of optimal for the class of graphs of treewidth $k$.
+%
+
+%The divide-and-conquer algorithms for anagram-free colouring actually
+%produce a \emph{linear colouring} \cite{X}, in which ever path $P$
+%in $G$ contains a vertex whose colour is unique in $P$.  When applied
+%to $n$-vertex graphs of treewidth $k$, these algorithms use $O(k\log
+%n)$ colours and, by our results, this is within a constant factor of
+%worst-case optimal, even for the class of graphs of pathwidth $k\ge 3$.
+%The relation between linear colourings anagram-free colouring
+%
 
 
 \bibliographystyle{plainurl}
